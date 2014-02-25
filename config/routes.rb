@@ -1,8 +1,8 @@
 Hopheads::Application.routes.draw do
 
-  get "welcome/index"
+  devise_for :users
 
-  get "welcome/about"
+  match "about" => 'welcome#about', via: :get
 
   root to: 'welcome#index'
 end
