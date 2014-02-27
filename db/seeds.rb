@@ -16,6 +16,7 @@ u = User.new(
 		email: 'test@email.com',
 		password: 'password',
 		password_confirmation: 'password')
+u.skip_confirmation!
 u.save
 u.update_attribute(:role, 'admin')
 
