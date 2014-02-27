@@ -13,18 +13,10 @@ group :development do
 	gem 'sqlite3'
 end
 
-group :test do
-	gem 'cucumber-rails'
-	gem 'capybara'
-	gem 'rspec-rails'
-	gem 'database_cleaner'
-end
-
-group :test, :develoment do
-	gem 'factory_girl_rails'
-	gem 'pry-debugger'
-end
-
+gem 'jquery-rails'
+gem 'faker'
+gem 'devise'
+gem 'cancan'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -39,10 +31,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-gem 'faker'
-gem 'devise'
-gem 'cancan'
+group :test do
+	gem 'cucumber-rails'
+	gem 'capybara'
+	gem 'rspec-rails'
+	gem 'database_cleaner'
+end
+
+group :test, :develoment do
+	gem 'factory_girl_rails'
+	gem 'pry-debugger'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
