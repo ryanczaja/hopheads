@@ -1,0 +1,25 @@
+<h1>Edit Post</h1>
+
+<div class="row">
+
+	<div class="span6">
+		<%= form_for @post, html: {class: 'form-horizontal'} do |p| %>
+
+			<div class="control-group">
+				<%= p.label :title, class: 'control-label' %>
+				<div class="controls">
+					<%= p.text_field :title %>
+				</div>
+			</div>
+
+			
+
+			<div class="control-group">
+				<div class="controls">
+					<%= p.submit "Save", class: 'btn' %>
+				</div>
+			</div>
+
+		<% end %>
+	</div>
+</div>
