@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140227192648) do
+ActiveRecord::Schema.define(:version => 20140227231201) do
 
   create_table "beers", :force => true do |t|
     t.string   "name"
@@ -44,11 +44,15 @@ ActiveRecord::Schema.define(:version => 20140227192648) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
+    t.integer  "beer_id"
+    t.integer  "location_id"
   end
 
+  add_index "posts", ["beer_id"], :name => "index_posts_on_beer_id"
+  add_index "posts", ["location_id"], :name => "index_posts_on_location_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "users", :force => true do |t|

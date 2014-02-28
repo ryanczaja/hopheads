@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
+  	#params = { post: { title: '', beer_attributes: { name: '', style: '', abv: '', description: '' } } }
   	@post = current_user.posts.build(params[:post])
     authorize! :create, @post, message: "You need to be signed in to do that."
   	if @post.save
