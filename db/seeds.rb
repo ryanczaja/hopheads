@@ -13,6 +13,9 @@ rand(4..10).times do
    rand(1..3).times do
     p = u.posts.create(
       title: Faker::Lorem.words(rand(1..10)).join(" "))
+    rand(3..10).times do
+      p.comments.create(body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
+    end
     # set the created_at to a time within the past year
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
   end
@@ -31,4 +34,5 @@ u.update_attribute(:role, 'admin')
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
+puts "#{Comment.count} comments created"
 puts "#{User.count} users created"

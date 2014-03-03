@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   belongs_to :location
   belongs_to :brewery
 
+  has_many :comments
   has_many :beers
 
   accepts_nested_attributes_for :beer
