@@ -5,10 +5,12 @@ class Post < ActiveRecord::Base
   belongs_to :location
   belongs_to :brewery
 
-  has_many :comments
-  has_many :beers
+  has_many   :comments
+  belongs_to :beer
 
   accepts_nested_attributes_for :beer
+
+  #attr_accessible :beer
 
   default_scope order('created_at DESC')
 

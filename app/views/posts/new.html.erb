@@ -12,7 +12,7 @@
 				</div>
 			</div>
 
-			<%= post.fields_for :beers do |beer| %>
+			<%= post.fields_for :beer_attributes do |beer| %>
 
 				<div class="control-group">
 					<%= beer.label :name, class: 'control-label' %>

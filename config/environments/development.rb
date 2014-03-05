@@ -1,3 +1,4 @@
+require 'better_errors'
 Hopheads::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -38,4 +39,6 @@ Hopheads::Application.configure do
   config.action_mailer.default_url_options = {:host => 'localhost:3000'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+
+  BetterErrors::Middleware.allow_ip! "10.0.2.2"
 end
