@@ -2,10 +2,11 @@
 	<div class="span8">
 		<h1> <%= @post.title %> </h1>
 
-		<b>Beer Name:</b> <%= @post.beer.name %><br />
-		<b>Beer Style:</b> <%= @post.beer.style %><br />
-		<b>Alcohol Percentage:</b> <%= @post.beer.abv %>%<br />
-		<b>Beer Description:</b> <%= @post.beer.description %><br />
+		<p><b>Beer Name:</b> <%= @post.beer.name %></p>
+		<p><b>Beer Style:</b> <%= @post.beer.style %></p>
+		<p><b>Alcohol Percentage:</b> <%= @post.beer.abv %>%</p>
+		<p><b>Beer Description:</b> <%= @post.beer.description %> </p>
+		<p><%= image_tag @post.image.url %></p>
 
 		<hr />
 		<h2><%= @comments.count %> Comments </h2>

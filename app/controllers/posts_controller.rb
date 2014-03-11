@@ -1,7 +1,3 @@
-# new model for beer_descriptions, belong_to beer (okay)
-# beer validate unique name (okay)
-# beer index name 
-
 class PostsController < ApplicationController
   def index
   	@posts = Post.all
@@ -16,27 +12,25 @@ class PostsController < ApplicationController
   def new
   	@post = Post.new
     @post.beer = Beer.new
+    @beers = Beer.all
   end
 
   def create
-  	
-  	@post = current_user.posts.build(params[:post])
+    @post = current_user.posts.build(params[:post])
     authorize! :create, @post, message: "You need to be signed in to do that."
-    # look up beer by name
-    # create beer if it doesn't exist
-    # create new description
-  	if @post.save
-  		flash[:notice] = "Post was saved."
-  		redirect_to @post
-  	else
-  		flash[:error] = "There was a problem saving the Post. Please try again."
-  		render :new
-  	end
+
+    if @post.save
+      flash[:notice] = "Post was saved."
+      redirect_to @post
+    else
+      flash[:error] = @post.errors.full_messages
+      render :new
+    end
+
   end
 
   def edit
   	@post = Post.find(params[:id])
-    
   end
 
   def update

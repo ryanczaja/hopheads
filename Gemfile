@@ -17,6 +17,9 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'devise'
 gem 'cancan'
+gem 'paperclip'
+gem 'rmagick'
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,12 +1,15 @@
 class Post < ActiveRecord::Base
-  attr_accessible :title, :beer_attributes
+  attr_accessor :image_file_name, :image_content_type
+  has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' }
+  attr_accessible :title, :beer_attributes, :image
+  before_validation :lookup_beer
+
   belongs_to :user
   belongs_to :beer
   belongs_to :location
   belongs_to :brewery
 
   has_many   :comments
-  belongs_to :beer
 
   accepts_nested_attributes_for :beer
 
@@ -16,4 +19,11 @@ class Post < ActiveRecord::Base
 
   validates :user, presence: true
   validates :title, length: {minimum: 5}, presence: true
+  validates_attachment_presence :image
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+  def lookup_beer
+    beer = Beer.where(name: self.beer.name).first
+    self.beer = beer if beer
+  end
 end
