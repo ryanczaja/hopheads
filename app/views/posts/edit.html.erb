@@ -3,23 +3,34 @@
 <div class="row">
 
 	<div class="span6">
-		<%= form_for @post, html: {class: 'form-horizontal'} do |post| %>
+		<%= form_for @post, html: {class: 'form-horizontal', multipart: true} do |post| %>
 
 			<div class="control-group">
-				<%= post.label :title, class: 'control-label' %>
+				<%= post.label :image, class: 'control-label' %>
 				<div class="controls">
-					<%= post.text_field :title %>
+					<%= post.file_field :image %>
 				</div>
 			</div>
 
 			<%= post.fields_for :beer do |beer| %>
 
 				<div class="control-group">
-					<%= beer.label :name, class: 'control-label' %>
+					<%= beer.label "Beer Name", class: 'control-label' %>
 					<div class="controls">
 						<%= beer.text_field :name %>
 					</div>
 				</div>
+
+				<%= post.fields_for :brewery do |brewery| %>
+
+					<div class="control-group">
+						<%= brewery.label "Brewery Name", class: 'control-label' %>
+						<div class="controls">
+							<%= brewery.text_field :name %>
+						</div>
+					</div>
+
+				<% end %>
 
 				<div class="control-group">
 					<%= beer.label :style, class: 'control-label' %>
@@ -44,6 +55,17 @@
 
 			<% end %>
 
+			<%= post.fields_for :location do |location| %>
+
+			<div class="control-group">
+					<%= location.label :city, class: 'control-label' %>
+					<div class="controls">
+						<%= location.text_field :city %>
+					</div>
+				</div>
+
+			<% end %>
+
 			<div class="control-group">
 				<div class="controls">
 					<%= post.submit "Save", class: 'btn' %>
@@ -51,7 +73,6 @@
 			</div>
 
 		<% end %>
-
 	</div>
 
 </div>
