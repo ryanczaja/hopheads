@@ -1,25 +1,35 @@
-<h1>All Posts</h1>
+<div class="row-fluid">
+	<div class="span6">
+		<h2>Recently Drank Beers</h2>
+	</div>
+
+	<div class="span6">
+		<div class="span4 pull-right">
+			<% if can? :create, Post %>
+				<%= link_to "New Post", new_post_path, class: 'btn btn-large btn-block' %>
+			<% end %>
+		</div>
+	</div>
+</div>
 
 <div class="row">
-	<div class="span8">
-		<% @posts.each do |post| %>
-			<div class="media">
-				<div class="media-body">
+	<% @posts.each do |post| %>
+		<div class="span3">
+			<div class="postsquares">
+				<div class="media">
+					<!-- Image will go here. -->
 					<h4 class="media-heading">
-						<%= link_to (post.title), post %>
+						<%= link_to (post.beer.name), post %>
 					</h4>
-					<small>
-						submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br />
-						<%= post.comments.count %> Comments
-					</small>
+					by: <%= post.brewery.name %>
+					<div class="media-body">
+						<hr />
+						<%= post.user.name %><br />
+						<%= time_ago_in_words(post.created_at) %> ago
+					</div>
 				</div>
 			</div>
-		<% end %>
-		
-	</div>
-	<div class="span4">
-		<% if can? :create, Post %>
-			<%= link_to "New Post", new_post_path, class: 'btn btn-large btn-block' %>
-		<% end %>
-	</div>
+		</div>
+	<% end %>
+
 </div>

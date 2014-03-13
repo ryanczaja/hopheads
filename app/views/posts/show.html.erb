@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="span8">
-		<h1> <%= @post.title %> </h1>
+		<h1> <%= @post.beer.name %> </h1>
 
-		<p><b>Beer Name:</b> <%= @post.beer.name %></p>
+		<p><b>Brewery:</b> <%= @post.brewery.name %></p>
 		<p><b>Beer Style:</b> <%= @post.beer.style %></p>
 		<p><b>Alcohol Percentage:</b> <%= @post.beer.abv %>%</p>
 		<p><b>Beer Description:</b> <%= @post.beer.description %> </p>
@@ -11,7 +11,7 @@
 		<hr />
 		<h2><%= @comments.count %> Comments </h2>
 
-		<%= render @comments %>
+		<%= render partial: 'comments/comment', collection: @comments %>
 
 		<% if can? :create, Comment %>
 			<hr />

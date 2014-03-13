@@ -12,7 +12,6 @@ class Beer < ActiveRecord::Base
   validates :description, length: {minimum: 10}
 
   def title_case
-  	#self.name = self.name.capitalize
   	articles = %w{a and the of}
   	self.name = self.name.downcase.split(" ")
   	
@@ -21,6 +20,7 @@ class Beer < ActiveRecord::Base
   			word.capitalize!
   		end
   	end
+
     self.name.first.capitalize!
     self.name = self.name.join(" ")
   end

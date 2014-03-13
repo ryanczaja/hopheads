@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140311190633) do
+ActiveRecord::Schema.define(:version => 20140311211424) do
 
   create_table "beer_descriptions", :force => true do |t|
     t.text     "body"
@@ -30,14 +30,15 @@ ActiveRecord::Schema.define(:version => 20140311190633) do
     t.integer  "post_id"
   end
 
-  add_index "beers", ["brewery_id"], :name => "index_beers_on_brewery_id"
-
   create_table "breweries", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "location"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "post_id"
+    t.integer  "location_id"
   end
+
+  add_index "breweries", ["location_id"], :name => "index_breweries_on_location_id"
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -69,11 +70,11 @@ ActiveRecord::Schema.define(:version => 20140311190633) do
     t.integer  "beer_id"
     t.integer  "location_id"
     t.string   "image"
-    t.string   "brewery"
+    t.integer  "brewery_id"
   end
 
   add_index "posts", ["beer_id"], :name => "index_posts_on_beer_id"
-  add_index "posts", ["brewery"], :name => "index_posts_on_brewery"
+  add_index "posts", ["brewery_id"], :name => "index_posts_on_brewery_id"
   add_index "posts", ["location_id"], :name => "index_posts_on_location_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 

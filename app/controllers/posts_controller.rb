@@ -12,7 +12,8 @@ class PostsController < ApplicationController
   def new
   	@post = Post.new
     @post.beer = Beer.new
-    @beers = Beer.all
+    @post.brewery = Brewery.new
+    #@beers = Beer.all
   end
 
   def create
@@ -50,10 +51,10 @@ class PostsController < ApplicationController
     name = @post.title
     authorize! :destroy, @post, message: "You need to own the Post to delete it."
     if @post.destroy
-      flash[:notice] = "\"#{name}\" was deleted successfully."
+      flash[:notice] = "Your post was deleted successfully."
       redirect_to posts_path
     else
-      flash[:error] = "There was an error deleting the post."
+      flash[:error] = @post.errors.full_messages
       render :show
     end
   end

@@ -6,13 +6,6 @@
 		<%= form_for @post, html: {class: 'form-horizontal', multipart: true} do |post| %>
 
 			<div class="control-group">
-				<%= post.label :title, class: 'control-label' %>
-				<div class="controls">
-					<%= post.text_field :title %>
-				</div>
-			</div>
-
-			<div class="control-group">
 				<%= post.label :image, class: 'control-label' %>
 				<div class="controls">
 					<%= post.file_field :image %>
@@ -22,11 +15,22 @@
 			<%= post.fields_for :beer_attributes do |beer| %>
 
 				<div class="control-group">
-					<%= beer.label :name, class: 'control-label' %>
+					<%= beer.label "Beer Name", class: 'control-label' %>
 					<div class="controls">
 						<%= beer.text_field :name %>
 					</div>
 				</div>
+
+				<%= post.fields_for :brewery_attributes do |brewery| %>
+
+					<div class="control-group">
+						<%= brewery.label "Brewery Name", class: 'control-label' %>
+						<div class="controls">
+							<%= brewery.text_field :name %>
+						</div>
+					</div>
+
+				<% end %>
 
 				<div class="control-group">
 					<%= beer.label :style, class: 'control-label' %>
@@ -46,6 +50,17 @@
 					<%= beer.label :description, class: 'control-label' %>
 					<div class="controls">
 						<%= beer.text_area :description %>
+					</div>
+				</div>
+
+			<% end %>
+
+			<%= post.fields_for :location_attributes do |location| %>
+
+			<div class="control-group">
+					<%= location.label :city, class: 'control-label' %>
+					<div class="controls">
+						<%= location.text_field :city %>
 					</div>
 				</div>
 
