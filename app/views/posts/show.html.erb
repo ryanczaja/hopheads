@@ -8,6 +8,11 @@
 		<p><b>Beer Description:</b> <%= @post.beer.description %> </p>
 		<p><%= image_tag @post.image.url %></p>
 
+		<small>
+			submitted <%= time_ago_in_words(@post.created_at) %> ago by
+			<%= link_to @post.user.name, @post.user %>
+		</small>
+		
 		<hr />
 		<h2><%= @comments.count %> Comments </h2>
 

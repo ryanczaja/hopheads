@@ -13,23 +13,5 @@
 </div>
 
 <div class="row">
-	<% @posts.each do |post| %>
-		<div class="span3">
-			<div class="postsquares">
-				<div class="media">
-					<!-- Image will go here. -->
-					<h4 class="media-heading">
-						<%= link_to (post.beer.name), post %>
-					</h4>
-					by: <%= post.brewery.name %>
-					<div class="media-body">
-						<hr />
-						<%= post.user.name %><br />
-						<%= time_ago_in_words(post.created_at) %> ago
-					</div>
-				</div>
-			</div>
-		</div>
-	<% end %>
-
+	<%= render @posts %>
 </div>

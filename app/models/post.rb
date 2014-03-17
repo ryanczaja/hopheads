@@ -20,8 +20,8 @@ class Post < ActiveRecord::Base
 
   validates :user, presence: true
   #validates :title, length: {minimum: 5}, presence: true
-  #validates_attachment_presence :image
-  #validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_presence :image
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def lookup_beer
     beer = Beer.where(name: self.beer.name).first

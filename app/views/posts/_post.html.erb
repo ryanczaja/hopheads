@@ -1,0 +1,20 @@
+<div class="span3">
+	<div class="postsquares">
+		<div class="media">
+			<!-- Image will go here. -->
+			<h4 class="media-heading">
+				<%= link_to (truncate post.beer.name, length: 15), post %>
+			</h4>
+			by: <%= truncate post.brewery.name, length: 20 %>
+			<div class="media-body">
+				<hr />
+				<i class="icon-user"> </i>
+				<%= link_to post.user.name, post.user %><br />
+				<%= time_ago_in_words(post.created_at) %> ago
+				<div class="pull-right">
+					<%= post.comments.count %> <i class="icon-comment"> </i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

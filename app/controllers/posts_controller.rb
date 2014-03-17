@@ -13,7 +13,6 @@ class PostsController < ApplicationController
   	@post = Post.new
     @post.beer = Beer.new
     @post.brewery = Brewery.new
-    #@beers = Beer.all
   end
 
   def create

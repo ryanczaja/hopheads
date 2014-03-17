@@ -22,14 +22,12 @@
 				</div>
 
 				<%= post.fields_for :brewery_attributes do |brewery| %>
-
 					<div class="control-group">
 						<%= brewery.label "Brewery Name", class: 'control-label' %>
 						<div class="controls">
 							<%= brewery.text_field :name %>
 						</div>
 					</div>
-
 				<% end %>
 
 				<div class="control-group">
@@ -49,7 +47,7 @@
 				<div class="control-group">
 					<%= beer.label :description, class: 'control-label' %>
 					<div class="controls">
-						<%= beer.text_area :description %>
+						<%= beer.text_area :description, rows: 12 %>
 					</div>
 				</div>
 
@@ -75,8 +73,13 @@
 		<% end %>
 	</div>
 
-	<div class="span4">
+	<div class="span6">
+		<!-- Add all the brewery details in this part as well as the location. Or maybe just the location details.
+		Or have a bool that toggles if checked the attributes should be assigned to the brewery and if not then it 
+		is a new location or an existing. -->
+
 		
+
 	</div>
 
 </div>
