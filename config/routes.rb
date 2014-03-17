@@ -6,7 +6,7 @@ Hopheads::Application.routes.draw do
   	resources :comments, only: [:create, :destroy]
   end
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :users, only: [:show]
 
