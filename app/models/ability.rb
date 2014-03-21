@@ -1,3 +1,4 @@
+#Manages Users abilities on the site.
 class Ability
   include CanCan::Ability
 

@@ -1,0 +1,10 @@
+<!-- This is to display comments for the brewery on each brewery page. -->
+<div class="media-body">
+	<small>
+		<b><%= comment.user.name %></b> commented <%= time_ago_in_words(comment.created_at) %> ago 
+		<% if can? :destroy, comment %>
+			| <%= link_to "Delete", [@brewery, comment], method: :delete %>
+		<% end %>
+	</small>
+	<p><%= comment.body %></p>
+</div>

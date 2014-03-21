@@ -4,7 +4,7 @@
 			<div class="media-body">
 				<h1 class="media-heading"><%= @user.name %></h1>
 				<small>
-					<%= pluralize(@user.posts.count, 'post') %>
+					<%= pluralize(@user.posts.count, 'Bottle Caps') %> |
 					<%= pluralize(@user.comments.count, 'comment') %>
 				</small>
 			</div>
@@ -14,5 +14,7 @@
 
 <div class="row">
 	<br />
+	<!-- Renders the users posts. -->
+	
 	<%= render @posts %>
 </div>

@@ -2,11 +2,11 @@
 	<div class="span8">
 		<h1> <%= @post.beer.name %> </h1>
 
-		<p><b>Brewery:</b> <%= @post.brewery.name %></p>
+		<p><b>Brewery:</b> <%= link_to @post.brewery.name, @post.brewery %></p>
 		<p><b>Beer Style:</b> <%= @post.beer.style %></p>
 		<p><b>Alcohol Percentage:</b> <%= @post.beer.abv %>%</p>
 		<p><b>Beer Description:</b> <%= @post.beer.description %> </p>
-		<p><%= image_tag @post.image.url %></p>
+		<!--<p><%= image_tag @post.image.url %></p>-->
 
 		<small>
 			submitted <%= time_ago_in_words(@post.created_at) %> ago by

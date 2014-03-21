@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140317003541) do
+ActiveRecord::Schema.define(:version => 20140319161844) do
 
   create_table "beer_descriptions", :force => true do |t|
     t.text     "body"
@@ -30,14 +30,18 @@ ActiveRecord::Schema.define(:version => 20140317003541) do
     t.integer  "post_id"
   end
 
+  add_index "beers", ["brewery_id"], :name => "index_beers_on_brewery_id"
+
   create_table "breweries", :force => true do |t|
     t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "post_id"
     t.integer  "location_id"
+    t.integer  "beer_id"
   end
 
+  add_index "breweries", ["beer_id"], :name => "index_breweries_on_beer_id"
   add_index "breweries", ["location_id"], :name => "index_breweries_on_location_id"
 
   create_table "comments", :force => true do |t|
@@ -46,8 +50,10 @@ ActiveRecord::Schema.define(:version => 20140317003541) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
+    t.integer  "brewery_id"
   end
 
+  add_index "comments", ["brewery_id"], :name => "index_comments_on_brewery_id"
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 

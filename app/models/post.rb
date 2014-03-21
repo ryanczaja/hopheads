@@ -20,14 +20,16 @@ class Post < ActiveRecord::Base
 
   validates :user, presence: true
   #validates :title, length: {minimum: 5}, presence: true
-  validates_attachment_presence :image
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  #validates_attachment_presence :image
+  #validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+  #This method looks up if a beer exists already. If it doesn't it creates a new Beer, if it does then it references the one in the database.
   def lookup_beer
     beer = Beer.where(name: self.beer.name).first
     self.beer = beer if beer
   end
 
+  #This method looks up if a brewery exists already. If it doesn't it creates a new Brewery, if it does then it references the one in the database.
   def lookup_brewery
     brewery = Brewery.where(name: self.brewery.name).first
     self.brewery = brewery if brewery

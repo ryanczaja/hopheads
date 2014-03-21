@@ -9,8 +9,9 @@ class Beer < ActiveRecord::Base
   validates :name, length: {minimum: 5}, presence: true, uniqueness: true
   validates :abv, length: {minimum: 1}
   validates :style, length: {minimum: 2}
-  validates :description, length: {minimum: 10}
+  #validates :description, length: {minimum: 10}
 
+  #This method title cases all saved entries for beer to make them singular and have no off-cased beer names.
   def title_case
   	articles = %w{a and the of}
   	self.name = self.name.downcase.split(" ")

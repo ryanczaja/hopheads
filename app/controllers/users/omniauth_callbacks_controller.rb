@@ -1,3 +1,4 @@
+#This controller is used with Facebook Login through the site which directes them to Facebook and redirects them back upon a successful login.
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     @user = User.find_for_facebook_oauth(request.env["omniauth.auth"], current_user)
