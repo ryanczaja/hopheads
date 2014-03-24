@@ -3,7 +3,7 @@ class Brewery < ActiveRecord::Base
   has_many :beers
   has_many :posts
   has_many :comments, dependent: :destroy
-  belongs_to :location
+  has_one :location
 
   before_save :title_case
 

@@ -3,7 +3,27 @@
 		<div class="media">
 			<div class="media-body">
 				<h1 class="media-heading"><%= @brewery.name %></h1>
-				<%= @brewery.beers.count %>
+				<%= @brewery.location.address %><br />
+				<%= @brewery.location.city %>, <%= @brewery.location.state %>, <%= @brewery.location.zip %><br />
+				Phone #: <%= @brewery.location.phone %>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Beer Name</th>
+							<th>Style</th>
+							<th>ABV</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @brewery.beers.each do |beer| %>
+							<tr>
+								<td><%= beer.name %></td>
+								<td><%= beer.style %></td>
+								<td><%= beer.abv %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>

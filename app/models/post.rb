@@ -1,9 +1,12 @@
 class Post < ActiveRecord::Base
   attr_accessor :image_file_name, :image_content_type
-  has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' }
+  has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' },
+    path: ':rails_root/public/attachments/:class/:id_partition/:style/:filename',
+    url:  'attachments/:class/:id_partition/:style/:filename'
   attr_accessible :title, :beer_attributes, :brewery_attributes, :location_attributes, :image
   before_validation :lookup_beer,    if: proc { !self.beer.nil? }
   before_validation :lookup_brewery, if: proc { !self.brewery.nil? }
+  before_validation :lookup_location, if: proc { !self.location.nil? }
 
   belongs_to :user
   belongs_to :beer
@@ -28,10 +31,19 @@ class Post < ActiveRecord::Base
     beer = Beer.where(name: self.beer.name).first
     self.beer = beer if beer
   end
-
+  #This method looks up if the location exists.
+  def lookup_location
+    location = Location.where(address: self.location.address).first
+    self.location = location if location
+    if self.brewery.location == nil
+      self.brewery.location = self.location
+    end
+  end
   #This method looks up if a brewery exists already. If it doesn't it creates a new Brewery, if it does then it references the one in the database.
   def lookup_brewery
     brewery = Brewery.where(name: self.brewery.name).first
     self.brewery = brewery if brewery
+    else
+    self.brewery.beers << self.beer
   end
 end
