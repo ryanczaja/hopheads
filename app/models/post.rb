@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
-  attr_accessor :image_file_name, :image_content_type
+  attr_accessor   :image_file_name, :image_content_type
+  attr_accessible :image_file_name, :image_content_type
   has_attached_file :image, styles: { medium: '300x300>', thumb: '100x100>' },
     path: ':rails_root/public/attachments/:class/:id_partition/:style/:filename',
     url:  'attachments/:class/:id_partition/:style/:filename'
@@ -26,6 +27,13 @@ class Post < ActiveRecord::Base
   #validates_attachment_presence :image
   #validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+  #This method looks up if a brewery exists already. If it doesn't it creates a new Brewery, if it does then it references the one in the database.
+  def lookup_brewery
+    brewery = Brewery.where(name: self.brewery.name).first
+    self.brewery = brewery if brewery
+    else
+    self.brewery.beers << self.beer
+  end
   #This method looks up if a beer exists already. If it doesn't it creates a new Beer, if it does then it references the one in the database.
   def lookup_beer
     beer = Beer.where(name: self.beer.name).first
@@ -38,12 +46,5 @@ class Post < ActiveRecord::Base
     if self.brewery.location == nil
       self.brewery.location = self.location
     end
-  end
-  #This method looks up if a brewery exists already. If it doesn't it creates a new Brewery, if it does then it references the one in the database.
-  def lookup_brewery
-    brewery = Brewery.where(name: self.brewery.name).first
-    self.brewery = brewery if brewery
-    else
-    self.brewery.beers << self.beer
   end
 end

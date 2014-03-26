@@ -1,10 +1,8 @@
 <h1>New Post</h1>
 
 <div class="row">
-
-	<div class="span6">
-		<%= form_for @post, html: {class: 'form-horizontal', multipart: true} do |post| %>
-
+	<%= form_for @post, html: {class: 'form-horizontal', multipart: true} do |post| %>
+		<div class="span6">
 			<!--<div class="control-group">
 				<%= post.label :image, class: 'control-label' %>
 				<div class="controls">
@@ -45,27 +43,34 @@
 				</div>
 
 				<div class="control-group">
+					<%= beer.label "IBU", class: 'control-label' %>
+					<div class="controls">
+						<%= beer.text_field :ibu %> IBU's
+					</div>
+				</div>
+
+				<div class="control-group">
 					<%= beer.label :description, class: 'control-label' %>
 					<div class="controls">
 						<%= beer.text_area :description, rows: 12 %>
 					</div>
 				</div>
 
-			<% end %>
-
-			<div class="control-group">
-				<div class="controls">
-					<%= post.submit "Save", class: 'btn' %>
+				<div class="control-group">
+					<div class="controls">
+						<%= post.submit "Save", class: 'btn' %>
+					</div>
 				</div>
-			</div>
-	</div>
 
-	<div class="span6">
-		<!-- Add all the brewery details in this part as well as the location. Or maybe just the location details.
-		Or have a bool that toggles if checked the attributes should be assigned to the brewery and if not then it 
-		is a new location or an existing. -->
+			<% end %>
+		</div>
 
-		<%= post.fields_for :location_attributes do |location| %>
+		<div class="span6">
+			<!-- Add all the brewery details in this part as well as the location. Or maybe just the location details.
+			Or have a bool that toggles if checked the attributes should be assigned to the brewery and if not then it 
+			is a new location or an existing. -->
+
+			<%= post.fields_for :location_attributes do |location| %>
 
 				<div class="control-group">
 					<%= location.label :name, class: 'control-label' %>
@@ -104,14 +109,13 @@
 
 				<div class="control-group">
 					<%= location.label :phone, class: 'control-label' %>
-					<div class="controls">
+					<div class="controls bfh-phone">
 						<%= location.text_field :phone %>
 					</div>
 				</div>
 
 			<% end %>
-		
-		<% end %>
-	</div>
+		</div>
 
+	<% end %>
 </div>

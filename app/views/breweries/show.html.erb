@@ -3,44 +3,59 @@
 		<div class="media">
 			<div class="media-body">
 				<h1 class="media-heading"><%= @brewery.name %></h1>
-				<%= @brewery.location.address %><br />
-				<%= @brewery.location.city %>, <%= @brewery.location.state %>, <%= @brewery.location.zip %><br />
-				Phone #: <%= @brewery.location.phone %>
+
+				<% if @brewery.location.address != "" %>
+					<%= @brewery.location.address %><br />
+				<% elsif %>
+					<br />
+				<% end %>
+
+				<% if @brewery.location.city != "" %> <%= @brewery.location.city %>, <% end %>
+				<% if @brewery.location.state != "" %> <%= @brewery.location.state %>, <% end %>
+				<% if @brewery.location.zip != "" %> <%= @brewery.location.zip %> <% end %><br />
+
+				<% if @brewery.location.phone != "" %>
+					Phone #: <%= @brewery.location.phone %>
+				<% end %>
+
 				<table class="table table-bordered">
 					<thead>
 						<tr>
 							<th>Beer Name</th>
 							<th>Style</th>
 							<th>ABV</th>
+							<th>Bottle Caps</th>
+							<th>Reviews</th>
 						</tr>
 					</thead>
 					<tbody>
 						<% @brewery.beers.each do |beer| %>
 							<tr>
-								<td><%= beer.name %></td>
+								<td><%= link_to beer.name, beer %></td>
 								<td><%= beer.style %></td>
 								<td><%= beer.abv %></td>
+								<td> Working on!! </td>
+								<td><%= beer.comments.count %></td>
 							</tr>
 						<% end %>
 					</tbody>
 				</table>
 			</div>
 		</div>
+		<hr />
 	</div>
 </div>
 
 <div class="row">
 	<div class="span8">
-		<hr />
-
 		<h2><%= @comments.count %> Comments </h2>
 
 		<%= render partial: 'breweries/comments/comment', collection: @comments %>
 
 		<% if can? :create, Comment %>
-			<hr />
 			<h4>New Comment</h4>
 			<%= render partial: 'breweries/comments/form', locals: {brewery: @brewery, comment: @comment} %>
 		<% end %>
 		
 	</div>
+</div>

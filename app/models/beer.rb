@@ -2,7 +2,8 @@ class Beer < ActiveRecord::Base
   belongs_to :brewery
   has_many   :posts
   has_many   :descriptions
-  attr_accessible :abv, :description, :name, :style
+  has_many   :comments, dependent: :destroy
+  attr_accessible :abv, :description, :name, :style, :ibu
 
   before_save :title_case
 
@@ -10,6 +11,7 @@ class Beer < ActiveRecord::Base
   validates :abv, length: {minimum: 1}
   validates :style, length: {minimum: 2}
   #validates :description, length: {minimum: 10}
+  #validates :ibu, length: {minimum: 2}
 
   #This method title cases all saved entries for beer to make them singular and have no off-cased beer names.
   def title_case

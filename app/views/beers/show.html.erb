@@ -1,0 +1,54 @@
+<div class="row">
+	<div class="span6">
+		<div class="media">
+			<h1 class="media-heading"><%= @beer.name %></h1>
+				<div class="media-body">
+				<b>Brewed By:</b><br /> 
+				<%= link_to @beer.brewery.name, @beer.brewery %>
+				<% if @beer.brewery.location.city != "" %>| <%= @beer.brewery.location.city %>, <% end %>
+				<% if @beer.brewery.location.state != "" %> <%= @beer.brewery.location.state %> <% end %><br /><br />
+
+				<b>Style | ABV | IBU:</b><br />
+				<%= @beer.style %> | 
+				<%= @beer.abv %>% ABV | 
+				<% if @beer.ibu = nil || @beer.ibu = "" %>
+					???
+				<% elsif %>
+					<%= @beer.ibu %> IBU's
+				<% end %>
+				<br /><br />
+
+				<b>Description:</b><br />
+				<% if @beer.description != "" || @beer.description != nil %>
+					<%= @beer.description %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="span6">
+		<div class="media">
+			<h3 class="media-heading">Similar Beers:</h3>
+			<div class="media-body">
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="span12">
+		<div class="media">
+			<h1 class="media-heading"></h1>
+			<div class="media-body">
+				<hr />
+				<h2><%= @comments.count %> Reviews </h2>
+
+				<%= render partial: 'beers/comments/comment', collection: @comments %>
+
+				<% if can? :create, Comment %>
+					<h4>New Comment</h4>
+					<%= render partial: 'beers/comments/form', locals: {beer: @beer, comment: @comment} %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

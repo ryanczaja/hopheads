@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   #Creates a new post with all the post, beers, breweries, location, and users attributes.
   def create
     @post = current_user.posts.build(params[:post])
+    # require 'pry'; binding.pry 
     authorize! :create, @post, message: "You need to be signed in to do that."
 
     if @post.save

@@ -12,6 +12,10 @@ Hopheads::Application.routes.draw do
     resources :comments, only: [:create, :destroy], controller: 'breweries/comments'
   end
 
+  resources :beers, only: [:show] do 
+    resources :comments, only: [:create, :destroy], controller: 'beers/comments'
+  end
+
   match "about" => 'welcome#about', via: :get
 
   root to: 'welcome#index'
