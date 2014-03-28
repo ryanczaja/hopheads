@@ -21,6 +21,13 @@ rand(4..10).times do
         },
       brewery_attributes: {
         name: Faker::Lorem.words(rand(1..3)).join(" ")
+        },
+      location_attributes: {
+        address: Faker::Lorem.words(rand(1..2)).join(" "),
+        city: Faker::Lorem.words(rand(1..2)).join(" "),
+        state: Faker::Lorem.words(rand(1)).join(" "),
+        phone: rand(4..15),
+        zip: rand(4..15)
         })
     # set the created_at to a time within the past year
     p.update_attribute(:created_at, Time.now - rand(600..31536000))

@@ -34,7 +34,7 @@
 								<td><%= link_to beer.name, beer %></td>
 								<td><%= beer.style %></td>
 								<td><%= beer.abv %></td>
-								<td> Working on!! </td>
+								<td><%= beer.posts.count %></td>
 								<td><%= beer.comments.count %></td>
 							</tr>
 						<% end %>
