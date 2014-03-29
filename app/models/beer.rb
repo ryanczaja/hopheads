@@ -16,13 +16,25 @@ class Beer < ActiveRecord::Base
   #This method title cases all saved entries for beer to make them singular and have no off-cased beer names.
   def title_case
   	articles = %w{a and the of}
+    exceptions = %W{ipa apa}
+
   	self.name = self.name.downcase.split(" ")
+    self.style = self.style.downcase.split(" ")
   	
   	self.name.each do |word|
   		unless articles.include?(word)
   			word.capitalize!
   		end
   	end
+
+    self.style.each do |word|
+      unless articles.include?(word)
+        word.capitalize!
+      end
+    end
+
+    self.style.first.capitalize!
+    self.style = self.style.join(" ")
 
     self.name.first.capitalize!
     self.name = self.name.join(" ")
