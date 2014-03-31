@@ -18,6 +18,9 @@
 				<% end %>
 				<br /><br />
 
+				<b>Bottle Caps:</b> <%= @beer.posts.count %>
+				<br /><br />
+
 				<b>Description:</b><br />
 				<% if @beer.description != "" || @beer.description != nil %>
 					<%= @beer.description %>
