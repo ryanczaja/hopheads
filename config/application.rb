@@ -66,5 +66,16 @@ module Hopheads
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += ['application.css.scss']
+    config.assets.precompile += ['beers.css.scss']
+    config.assets.precompile += ['breweries.css.scss']
+    config.assets.precompile += ['comments.css.scss']
+    config.assets.precompile += ['index.css.scss']
+    config.assets.precompile += ['neweditposts.css.scss']
+    config.assets.precompile += ['posts.css.scss']
+    config.assets.precompile += ['showpost.css.scss']
+    config.assets.precompile += ['sign_in.css.scss']
+    config.assets.precompile += ['users.css.scss']
+    config.assets.precompile += ['welcome.css.scss']
   end
 end
