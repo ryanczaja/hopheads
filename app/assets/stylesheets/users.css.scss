@@ -1,3 +1,91 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#opacityuser{
+	position: absolute;
+	z-index: -1;
+	width: 940px;
+	height: 215px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#opacityposts{
+	position: absolute;
+	z-index: -1;
+	#width: 540px;
+	width: 100%;
+	height: 100%;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+	margin-bottom: 25px;
+}
+
+#opacityfollowers{
+	position: absolute;
+	z-index: -1;
+	width: 380px;
+	height: 200px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+	margin-bottom: 25px;
+}
+
+#userinfo{
+	margin-bottom: 40px;
+}
+
+#userphoto{
+	margin-left: 25px;
+	margin-top: 25px;
+	height: 125px;
+	width: 125px;
+	background-color: #999999;
+	border-radius: 10px;
+}
+
+#follow{
+	width: 125px;
+	height: 25px;
+	border-radius: 10px;
+	background-color: #999999;
+	margin-top: 10px;
+	margin-left: 25px;
+	padding-top: 5px;
+	font-family: 'Alfa Slab One';
+	letter-spacing: .1em;
+	color: white;
+}
+
+#title{
+	color: #a82109;
+	margin-left: 10px;
+	font-family: 'Alfa Slab One';
+}
+
+#userstats{
+	margin-left: 10px;
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+	letter-spacing: .02em;
+}
+
+#userposts{
+	padding-top: 10px;
+}
+
+#post{
+	margin-left: 20px;
+	margin-right: 20px;
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+	letter-spacing: .02em;
+}
+
+#followers{
+	padding-top: 10px;
+}
+
+#beername{
+	font-size: 24px;
+}

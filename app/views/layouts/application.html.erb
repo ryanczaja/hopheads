@@ -5,13 +5,20 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div class="container">
+
+  <div id="top">
+
+  </div>
+  
+  <div class="container">
 		<ul class="nav nav-tabs">
-			<li><%= link_to "Home", root_path %></li>
-			<li><%= link_to "About", about_path %></li>
-			<li><%= link_to "Posts", posts_path %></li>
+      <li><%= link_to image_tag("/images/hoplogo1.jpg"), root_path %></li>
+			<!--<li id="link"><%= link_to "About", about_path %></li>-->
+			<li id="link"><%= link_to "Posts", posts_path %></li>
 
 			<div class="pull-right user-info">
 
@@ -25,8 +32,8 @@
           <% end %>
 
 				<% else %>
-					<%= link_to "Sign In", new_user_session_path %> or
-					<%= link_to "Sign Up", new_user_registration_path %>
+          <i class="icon-user"> </i>
+					<%= link_to "Sign In", new_user_session_path %> 
 				<% end %>
         
 			</div>
@@ -52,6 +59,38 @@
 		<%= yield %>
 
 	</div>
+
+  <div class="navbar navbar-fixed-bottom">
+    <div id="bottom">
+      <div class="container">
+        <div class="row">
+
+          <div class="copyright">
+            <div class="span5">
+              <img src="/images/hoplogo2.jpg" /><br/>
+              <small>&copy; 2014 COPYRIGHT HOPHEADS. ALL RIGHTS RESERVED.</small>
+            </div>
+          </div>
+          <!-- These are the links on the bottom right of the page.
+          <div class="bottomlinks">
+            <div class="span1 offset2">
+              About<br/>
+              Terms          
+            </div>
+            <div class="span1">
+              Help<br/>
+              Privacy          
+            </div>
+            <div class="span1">
+              Contact<br/>
+              Blog          
+            </div>
+          </div> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </body>

@@ -1,20 +1,73 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+
 <div class="row">
 	<div class="span12">
-		<div class="media">
-			<div class="media-body">
-				<h1 class="media-heading"><%= @user.name %></h1>
-				<small>
-					<%= pluralize(@user.posts.count, 'Bottle Caps') %> |
-					<%= pluralize(@user.comments.count, 'comment') %>
-				</small>
+
+		<div id="userinfo">
+			<div id="opacityuser"></div>
+			<div class="row">
+				<div class="span2">
+					<div id="userphoto">
+
+					</div>
+					
+					<div id="follow">
+						<center>Follow</center>
+					</div>
+				</div>
+
+				<div class="span4">
+					<br/>
+					<h2><span id="title"><%= @user.name %></span></h2>
+					<div id="userstats">
+						
+						Bottle Caps = <%= @user.posts.count %><br/>
+						<%= @user.name %>'s Comment's = <%= @user.comments.count %>
+						<br/>
+					</div>
+				</div>
 			</div>
 		</div>
+
 	</div>
 </div>
 
 <div class="row">
-	<br />
-	<!-- Renders the users posts. -->
-	
-	<%= render @posts %>
-</div>
+	<div class="span12">
+		<div id="userposts">
+			<div id="opacityposts"></div>
+			<center><h3><span id="title">Recently Drank Beers</span></h3></center>
+
+				<div id="post">
+
+					<% @user.posts.each do |post| %>
+
+						<span id="beername"><%= link_to post.beer.name, post.beer %></span> 
+						by <%= link_to post.brewery.name, post.brewery %><br/>
+
+
+						<% if post.location.name != "" %>
+							Location: <%= post.location.name %>
+						<% elsif %>
+							Location: One not provided.
+						<% end %><br/>
+
+						<% if post.beer.description != "" %>
+							<br/><%= post.beer.description %>
+						<% end %>
+
+						<hr/>
+
+					<% end %>
+
+				</div>
+
+		</div>
+	</div>
+<!--
+	<div class="span5">
+		<div id="followers">
+			<div id="opacityfollowers"></div>
+		</div>
+	</div>
+</div>-->

@@ -1,120 +1,89 @@
-<h1>Edit Post</h1>
+<%= stylesheet_link_tag "neweditposts", :media => "all" %>
+
+<div class="row">
+	<div class="span3">
+		<div class="titlecolumn">
+			<div id="titleopacity"></div>
+			<h1 id="headtitle">Edit Post</h1>
+		</div>
+	</div>
+</div>
+
 
 <div class="row">
 	<%= form_for @post, html: {class: 'form-horizontal', multipart: true} do |post| %>
-		<div class="span6">
-			<!--<div class="control-group">
-				<%= post.label :image, class: 'control-label' %>
-				<div class="controls">
-					<%= post.file_field :image %>
-				</div>
-			</div>-->
+		<div class="span5">
+			<div class="beercolumn">
+				<div id="beeropacity"></div>
+				<div id="spacer">
+					<center id="columntitle">Beer Attributes</center>
 
-			<%= post.fields_for :beer do |beer| %>
-
-				<div class="control-group">
-					<%= beer.label "Beer Name", class: 'control-label' %>
-					<div class="controls">
-						<%= beer.text_field :name %>
-					</div>
-				</div>
-
-				<%= post.fields_for :brewery do |brewery| %>
-					<div class="control-group">
-						<%= brewery.label "Brewery Name", class: 'control-label' %>
+					<!--<div class="control-group">
+						<%= post.label :image, class: 'control-label' %>
 						<div class="controls">
-							<%= brewery.text_field :name %>
+							<%= post.file_field :image %>
 						</div>
-					</div>
-				<% end %>
+					</div>-->
 
-				<div class="control-group">
-					<%= beer.label :style, class: 'control-label' %>
-					<div class="controls">
-						<%= beer.text_field :style %>
-					</div>
-				</div>
+					<%= post.fields_for :beer do |beer| %>
 
-				<div class="control-group">
-					<%= beer.label :abv, class: 'control-label' %>
-					<div class="controls">
-						<%= beer.text_field :abv %> %
-					</div>
-				</div>
+						<span id="bodytitles">Beer Name</span><br/>
+						<%= beer.text_field :name %><br/>
 
-				<div class="control-group">
-					<%= beer.label :ibu, class: 'control-label' %>
-					<div class="controls">
-						<%= beer.text_field :ibu %> IBU's
-					</div>
-				</div>
+						<%= post.fields_for :brewery do |brewery| %>
+							<span id="bodytitles">Brewery Name</span><br/>
+							<%= brewery.text_field :name %><br/>
+						<% end %>
 
-				<div class="control-group">
-					<%= beer.label :description, class: 'control-label' %>
-					<div class="controls">
-						<%= beer.text_area :description, rows: 12 %>
-					</div>
-				</div>
+						<span id="bodytitles">Style</span><br/>
+						<%= beer.text_field :style %><br/>
 
-				<div class="control-group">
-					<div class="controls">
-						<%= post.submit "Save", class: 'btn' %>
-					</div>
+						<span id="bodytitles">ABV</span><br/>
+						<%= beer.text_field :abv %><br/>
+
+						<span id="bodytitles">IBU</span><br/>
+						<%= beer.text_field :ibu %> IBU's <br/>
+
+						<span id="bodytitles">Description</span><br/>
+						<%= beer.text_area :description, rows: 8 %><br/><br/>
+
+						<%= post.submit "Save Post", class: 'btn btn-danger' %>
+					<% end %>
 				</div>
-				
-			<% end %>
+			</div>
 		</div>
 
-		<div class="span6">
-			<!-- Add all the brewery details in this part as well as the location. Or maybe just the location details.
-			Or have a bool that toggles if checked the attributes should be assigned to the brewery and if not then it 
-			is a new location or an existing. -->
+		<div class="span5">
+			<div class="beercolumn">
+				<div id="locationopacity"></div>
+				<div id="spacer2">
+					<center id="columntitle">Location Attributes</center>
+					<!-- Add all the brewery details in this part as well as the location. Or maybe just the location details.
+					Or have a bool that toggles if checked the attributes should be assigned to the brewery and if not then it 
+					is a new location or an existing. -->
 
-			<%= post.fields_for :location do |location| %>
+					<%= post.fields_for :location do |location| %>
 
-				<div class="control-group">
-					<%= location.label :name, class: 'control-label' %>
-					<div class="controls">
-						<%= location.text_field :name %>
-					</div>
+						<span id="bodytitles">Name</span><br/>
+						<%= location.text_field :name %><br/>
+
+						<span id="bodytitles">Address</span><br/>
+						<%= location.text_field :address %><br/>
+
+						<span id="bodytitles">City</span><br/>
+						<%= location.text_field :city %><br/>
+
+						<span id="bodytitles">State</span><br/>
+						<%= location.text_field :state %><br/>
+
+						<span id="bodytitles">Zip</span><br/>
+						<%= location.text_field :zip %><br/>
+
+						<span id="bodytitles">Phone</span><br/>
+						<%= location.text_field :phone %><br/>
+					<% end %>
 				</div>
-
-				<div class="control-group">
-					<%= location.label :address, class: 'control-label' %>
-					<div class="controls">
-						<%= location.text_field :address %>
-					</div>
-				</div>
-
-				<div class="control-group">
-					<%= location.label :city, class: 'control-label' %>
-					<div class="controls">
-						<%= location.text_field :city %>
-					</div>
-				</div>
-
-				<div class="control-group">
-					<%= location.label :state, class: 'control-label' %>
-					<div class="controls">
-						<%= location.text_field :state %>
-					</div>
-				</div>
-
-				<div class="control-group">
-					<%= location.label :zip, class: 'control-label' %>
-					<div class="controls">
-						<%= location.text_field :zip %>
-					</div>
-				</div>
-
-				<div class="control-group">
-					<%= location.label :phone, class: 'control-label' %>
-					<div class="controls bfh-phone">
-						<%= location.text_field :phone %>
-					</div>
-				</div>
-
-			<% end %>
+			</div>
 		</div>
 
 	<% end %>

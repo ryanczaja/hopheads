@@ -1,10 +1,15 @@
+<%= stylesheet_link_tag "showpost", :media => "all" %>
+
 <!-- This displays comments for each post. -->
 <div class="media-body">
 	<small>
-		<b><%= link_to comment.user.name, comment.user %></b> commented <%= time_ago_in_words(comment.created_at) %> ago 
-		<% if can? :destroy, comment %>
-			| <%= link_to "Delete", [@post, comment], method: :delete %>
-		<% end %>
+		<b id="bodytitles"><%= link_to comment.user.name, comment.user %></b> 
+		<span id="bodytext">
+			commented <%= time_ago_in_words(comment.created_at) %> ago 
+			<% if can? :destroy, comment %>
+				| <%= link_to "Delete", [@post, comment], method: :delete %>
+			<% end %>
+		</span>
 	</small>
-	<p><%= comment.body %></p>
+	<p id="bodytext"><%= comment.body %></p>
 </div>

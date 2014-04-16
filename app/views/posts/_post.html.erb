@@ -1,24 +1,38 @@
+<%= stylesheet_link_tag "posts", :media => "all" %>
+
 <div class="span3">
 	<div class="postsquares">
 		<div class="media">
 			<!-- Image will go here. -->
 			<h4 class="media-heading">
-				<%= link_to (truncate post.beer.name, length: 15), post %>
+				<span id="title"><%= link_to (truncate post.beer.name, length: 15), post %></span>
 			</h4>
-			by: <%= link_to (truncate post.brewery.name, length: 20), post.brewery %>
+
+			<span id="bodytext">by: </span>
+			<span id="bodytitles">
+				<%= link_to (truncate post.brewery.name, length: 20), post.brewery %>
+			</span>
+
 			<div class="media-body">
-				<%= truncate post.beer.description, length: 40 %>
+				<span id="bodytext"><%= truncate post.beer.description, length: 40 %></span>
 				<hr />
 				<i class="icon-user"> </i>
-				<%= link_to post.user.name, post.user %><br />
-				<%= time_ago_in_words(post.created_at) %> ago
-				<div class="pull-right">
-					<%= link_to post_path(post, anchor: 'comments') do %>
-					<%= post.comments.count %> 
-					<i class="icon-comment"> </i>
-					<% end %>
-				</div>
+
+				<span id="bodytitles">
+					<%= link_to post.user.name, post.user %><br />
+				</span>
+
+				<span id="bodytext">
+					<%= time_ago_in_words(post.created_at) %> ago
+					<div class="pull-right">
+						<%= link_to post_path(post, anchor: 'comments') do %>
+						<%= post.comments.count %> 
+						<i class="icon-comment"> </i>
+						<% end %>
+					</div>
+				</span>
 			</div>
+
 		</div>
 	</div>
 </div>

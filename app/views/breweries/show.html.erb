@@ -1,9 +1,12 @@
+<%= stylesheet_link_tag "breweries", :media => "all" %>
+
 <div class="row">
 	<div class="span12">
-		<div class="media">
-			<div class="media-body">
-				<h1 class="media-heading"><%= @brewery.name %></h1>
+		<div id="breweryopactiy"></div>
+		<div id="offset">
+			<h1 id="title"><%= @brewery.name %></h1>
 
+			<span id="bodytext">
 				<% if @brewery.location.address != "" %>
 					<%= @brewery.location.address %><br />
 				<% elsif %>
@@ -17,45 +20,52 @@
 				<% if @brewery.location.phone != "" %>
 					Phone #: <%= @brewery.location.phone %>
 				<% end %>
+			</span>
 
-				<table class="table table-bordered">
-					<thead>
+			<table class="table table-bordered" id="beertable">
+				<thead>
+					<tr>
+						<th id="bodytitles">Beer Name</th>
+						<th id="bodytitles">Style</th>
+						<th id="bodytitles">ABV</th>
+						<th id="bodytitles">Bottle Caps</th>
+						<th id="bodytitles">Reviews</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @brewery.beers.each do |beer| %>
 						<tr>
-							<th>Beer Name</th>
-							<th>Style</th>
-							<th>ABV</th>
-							<th>Bottle Caps</th>
-							<th>Reviews</th>
+							<td id="bodytext"><%= link_to beer.name, beer %></td>
+							<td id="bodytext"><%= beer.style %></td>
+							<td id="bodytext"><%= beer.abv %></td>
+							<td id="bodytext"><%= beer.posts.count %></td>
+							<td id="bodytext"><%= beer.comments.count %></td>
 						</tr>
-					</thead>
-					<tbody>
-						<% @brewery.beers.each do |beer| %>
-							<tr>
-								<td><%= link_to beer.name, beer %></td>
-								<td><%= beer.style %></td>
-								<td><%= beer.abv %></td>
-								<td><%= beer.posts.count %></td>
-								<td><%= beer.comments.count %></td>
-							</tr>
-						<% end %>
-					</tbody>
-				</table>
-			</div>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
-		<hr />
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		<hr/>
 	</div>
 </div>
 
 <div class="row">
 	<div class="span8">
-		<h2><%= @comments.count %> Comments </h2>
+		<div id="commentopacity"></div>
+		<div id="commentoffset">
+			<h2 id="comments"><%= @comments.count %> Comments </h2>
 
-		<%= render partial: 'breweries/comments/comment', collection: @comments %>
+			<%= render partial: 'breweries/comments/comment', collection: @comments %>
 
-		<% if can? :create, Comment %>
-			<h4>New Comment</h4>
-			<%= render partial: 'breweries/comments/form', locals: {brewery: @brewery, comment: @comment} %>
-		<% end %>
-		
+			<% if can? :create, Comment %>
+				<h4 id="bodytitles">New Comment</h4>
+				<%= render partial: 'breweries/comments/form', locals: {brewery: @brewery, comment: @comment} %>
+			<% end %>
+		</div>
 	</div>
 </div>

@@ -1,44 +1,61 @@
+<%= stylesheet_link_tag "showpost", :media => "all" %>
+<%= stylesheet_link_tag "posts", :media => "all" %>
+
 <div class="row">
-	<div class="span12">
-		<h1> <%= @post.beer.name %> </h1>
-		<%= link_to "Go to Beer", @post.beer, class: 'btn btn-mini' %> |
-		<% if can? :edit, @post %>
-			<%= link_to "Edit Post", edit_post_path(@post), class: 'btn btn-mini' %>
-		<% end %>
-
-		<% if can? :destroy, @post %>
-			<%= link_to "Delete Post", @post, method: :delete, class: 'btn btn-mini btn-danger', confirm: 'Are you sure you want to delete this Post?' %>
-		<% end %>
-	</div>
 	<div class="span6">
-		<br />
-		<p><b>Brewery:</b> <%= link_to @post.brewery.name, @post.brewery %></p>
-		<p><b>Beer Style:</b> <%= @post.beer.style %></p>
-		<p><b>Alcohol Percentage:</b> <%= @post.beer.abv %>%</p>
-		<p><b>Enjoying at:</b> <%= @post.location.name %></p>
-		<p><b>Beer Description:</b> <%= @post.beer.description %> </p>
-		<!--<p><%= image_tag @post.image.url %></p>-->
+		<div id="beeropacity"></div>
+		<div id="offset">
+			<h1 id="headtitle"> <%= @post.beer.name %> </h1>
 
-		<small>
-			submitted <%= time_ago_in_words(@post.created_at) %> ago by
-			<%= link_to @post.user.name, @post.user %>
-		</small>
-	</div>
+			<%= link_to "Go to Beer", @post.beer, class: 'btn btn-mini' %> |
+			<% if can? :edit, @post %>
+				<%= link_to "Edit Post", edit_post_path(@post), class: 'btn btn-mini' %>
+			<% end %>
 
-	<div class="span12">
-		<hr />
-	</div>
+			<% if can? :destroy, @post %>
+				<%= link_to "Delete Post", @post, method: :delete, class: 'btn btn-mini', confirm: 'Are you sure you want to delete this Post?' %>
+			<% end %>
 
-	<div class="span8">
-		<h2 id="comments"><%= @comments.count %> Comments </h2>
+			<br /><br/>
+			<p><b id="bodytitles">Brewery:</b><span id="bodytext"><%= link_to @post.brewery.name, @post.brewery %></span></p>
+			<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> <%= @post.beer.style %></span></p>
+			<p><b id="bodytitles">Alcohol Percentage:</b><span id="bodytext"> <%= @post.beer.abv %>%</span></p>
+			<% if @post.location.name != "" %>
+				<p><b id="bodytitles">Enjoying at:</b><span id="bodytext"> <%= @post.location.name %></span></p>
+			<% end %>
+			<p><b id="bodytitles">Beer Description:</b><span id="bodytext"> <%= @post.beer.description %></span> </p>
+			<!--<p><%= image_tag @post.image.url %></p>-->
 
-		<%= render partial: 'comments/comment', collection: @comments %>
-
-		<% if can? :create, Comment %>
-			<h4>New Comment</h4>
-			<%= render partial: 'comments/form', locals: {post: @post, comment: @comment} %>
-		<% end %>
-		
+			<small id="bodytext">
+				submitted <%= time_ago_in_words(@post.created_at) %> ago by
+				<%= link_to @post.user.name, @post.user %>
+			</small>
+		</div>
 	</div>
 </div>
+
+<div class="row">
+	<div class="span12">
+		<hr/>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span8">
+		<div id="commentopacity"></div>
+		<div id="commentoffset">
+			<h2 id="comments"><%= @comments.count %> Comments </h2>
+
+			<%= render partial: 'comments/comment', collection: @comments %>
+
+			<% if can? :create, Comment %>
+				<h4 id="bodytitles">New Comment</h4>
+				<%= render partial: 'comments/form', locals: {post: @post, comment: @comment} %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
+
 

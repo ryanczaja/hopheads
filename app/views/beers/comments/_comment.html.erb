@@ -1,10 +1,15 @@
+<%= stylesheet_link_tag "beers", :media => "all" %>
+
 <!-- This is to display comments for the beer on each beer page. -->
 <div class="media-body">
 	<small>
-		<b><%= link_to comment.user.name, comment.user %></b> commented <%= time_ago_in_words(comment.created_at) %> ago 
-		<% if can? :destroy, comment %>
-			| <%= link_to "Delete", [@beer, comment], method: :delete %>
-		<% end %>
+		<b id="bodytitles"><%= link_to comment.user.name, comment.user %></b> 
+		<span id="bodytext">
+			commented <%= time_ago_in_words(comment.created_at) %> ago 
+			<% if can? :destroy, comment %>
+				| <%= link_to "Delete", [@beer, comment], method: :delete %>
+			<% end %>
+		</span>
 	</small>
-	<p><%= comment.body %></p>
+	<p id="bodytext"><%= comment.body %></p>
 </div>

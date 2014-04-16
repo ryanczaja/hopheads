@@ -1,14 +1,16 @@
-<div class="row-fluid">
+<%= stylesheet_link_tag "posts", :media => "all" %>
+
+<div class="row">
 	<div class="span6">
-		<h2>Recently Drank Beers</h2>
+		<div id="opacity">
+			<span id="headtitle">Recently Drank Beers</span>
+		</div>
 	</div>
 
-	<div class="span6">
-		<div class="span4 pull-right">
-			<% if can? :create, Post %>
-				<%= link_to "New Post", new_post_path, class: 'btn btn-large btn-block' %>
-			<% end %>
-		</div>
+	<div class="span4 pull-right">
+		<% if can? :create, Post %>
+			<%= link_to "New Post", new_post_path, class: 'btn btn-large btn-block' %>
+		<% end %>
 	</div>
 </div>
 

@@ -1,0 +1,62 @@
+.welcome{
+	width: 780px;
+	height: 600px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.intro{
+	padding: 30px;
+	color: #666666;
+	font-family: 'Josefin Slab';
+	letter-spacing: .04em;
+}
+
+.padding{
+	padding: 15px 30px 30px 0px;
+	height: 100%;
+}
+
+.signup{
+	background-color: #c2c2c2;
+	border-radius: 10px;
+	height: 100%;
+	width: 100%;
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+}
+
+.fields{
+	margin-left: 60px;
+}
+
+#title{
+	color: #a82109;
+	padding-top: 20px;
+	font-family: 'Alfa Slab One';
+}
+
+#bold{
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+}
+
+#links{
+	margin-left: 20px;
+	padding-bottom: 15px;
+}
+
+div a:link{
+	color: #a82109;
+	background-color: none;
+}
+div a:visited{
+	color: #a82109;
+}
+div a:hover{
+	background: none !important;
+	border: none !important;
+	text-decoration: underline !important;
+}

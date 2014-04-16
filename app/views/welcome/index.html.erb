@@ -1,2 +1,56 @@
-<h1>Welcome to Hop Heads</h1>
-<p>The social networking platform for craft beer drinkers and enthusiasts.</p>
+<%= stylesheet_link_tag    "index", :media => "all" %>
+<br/>
+<div class="welcome">
+	<div class="row">
+		<div class="span5">
+			<div class="intro">
+				<center>
+					<h1 id="title">Welcome to HOPHEADS</h1>
+					<p><b>The social networking platform for craft beer drinkers and enthusiasts.</b></p>
+				</center>
+				<p>Mauris adipiscing rutrum enim, nec aliquet justo pharetra rutrum. Praesent gravida ipsum ipsum, ac mollis justo imperdiet eget. Aliquam semper interdum odio sit amet eleifend. Pellentesque nisi est, scelerisque nec feugiat quis, pellentesque vestibulum urna. Quisque viverra nulla orci, ac posuere mauris hendrerit et. Etiam id turpis et diam posuere iaculis in id velit. Cras ac ante ac tellus interdum convallis. Nam facilisis elit posuere varius semper. Sed pellentesque erat eget mauris ultricies, nec ornare velit luctus. Maecenas eu ornare mauris. Quisque vitae velit vitae nisl bibendum venenatis.</p>
+
+				Thank you<br/>
+				Hopheads.com
+			</div>
+		</div>
+
+		<div class="span5">
+			<div class="padding">
+				<div class="signup">
+					<center>
+						<h1 id="title">Join Us.</h1>
+						<p>Please sign up to become part of the Hopheads Community.</p>
+					</center>
+					<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+				  	<%= devise_error_messages! %>
+
+				  	<div class="fields">
+
+					    <span id="bold">Name</span><br/>
+					    <%= f.text_field :name, :autofocus => true %><br/><br/>
+
+  						<span id="bold">Email</span><br/>
+  						<%= f.email_field :email %><br/><br/>
+
+  						<span id="bold">Password</span><br/>
+  						<%= f.password_field :password %><br/><br/>
+
+  						<span id="bold">Password Confirmation</span><br/>
+  						<%= f.password_field :password_confirmation %><br/><br/>
+
+  						<%= f.submit "Sign up", class: 'btn btn-danger' %>
+					  
+					  </div>
+
+					<% end %>
+					<div id="links">
+						<%= render "devise/shared/links" %>
+					</div>
+					<br/>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

@@ -1,3 +1,79 @@
-// Place all the styles related to the Beers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#title{
+	color: #a82109;
+	font-family: 'Alfa Slab One';
+}
+
+#bodytitles{
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+	letter-spacing: .03em;
+}
+
+#bodytext{
+	font-family: 'Josefin Slab';
+	font-weight: 400;
+	letter-spacing: .03em;
+}
+
+#beeropacity{
+	position: absolute;
+	z-index: -1;
+	width: 460px;
+	height: 40%;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#similaropacity{
+	position: absolute;
+	z-index: -1;
+	width: 460px;
+	height: 40%;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#commentopacity{
+	position: absolute;
+	z-index: -1;
+	width: 620px;
+	height: 60%;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#offset{
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-top: 5px;
+	margin-bottom: 70px;
+}
+
+#commentoffset{
+	margin-left: 20px;
+	margin-right: 10px;
+	padding-top: 5px;
+	margin-bottom: 50px;
+}
+
+#comments{
+	color: #a82109;
+	font-family: 'Alfa Slab One';
+}
+
+div a:link{
+	color: #a82109;
+	background-color: none;
+	border: none !important;
+}
+div a:visited{
+	color: #a82109;
+	border: none !important;
+}
+div a:hover{
+	text-decoration: underline !important;
+	color: #a82109 !important;
+}

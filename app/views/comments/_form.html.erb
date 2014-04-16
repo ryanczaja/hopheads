@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "showpost", :media => "all" %>
+
 <!-- This is the form for post comments. -->
 <%= form_for [post, comment], htm: { class: 'form-horizontal' } do |f| %>
   <% if comment.errors.any? %>
@@ -12,7 +14,7 @@
   <% end %>
 
   <%= control_group_tag(comment.errors[:body]) do %>
-    <%= f.label :body, class: 'control-label' %>
+    <span id="bodytitles">Body</span><br/>
     <div class="controls">
       <%= f.text_area :body, rows: 8 %>
     </div>

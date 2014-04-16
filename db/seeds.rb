@@ -10,7 +10,7 @@ rand(4..10).times do
   u.skip_confirmation!
   u.save
 
-  rand(1..3).times do
+  rand(3..8).times do
     p = u.posts.create(
       title: Faker::Lorem.words(rand(1..10)).join(" "),
       beer_attributes: {

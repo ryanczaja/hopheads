@@ -2,7 +2,7 @@
 <%= form_for [beer, comment] do |f| %>
 
   <div class="control-group">
-    <%= f.label :body, class: 'control-label' %>
+    <span id="bodytitles">Body</span>
     <div class="controls">
       <%= f.text_area :body, rows: 8 %>
     </div>

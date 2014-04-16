@@ -1,0 +1,60 @@
+#beeropacity{
+	position: absolute;
+	z-index: -1;
+	width: 380px;
+	height: 572px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#locationopacity{
+	position: absolute;
+	z-index: -1;
+	width: 380px;
+	height: 382px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#titleopacity{
+	position: absolute;
+	z-index: -1;
+	width: 220px;
+	height: 50px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#headtitle{
+	padding-left: 25px;
+	padding-top: 5px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	font-size: 32px;
+	color: #a82109;
+	font-family: 'Alfa Slab One';
+}
+
+#columntitle{
+	color: #a82109;
+	font-family: 'Alfa Slab One';
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+
+#spacer{
+	margin-left: 60px;
+	margin-right: 60px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#spacer2{
+	margin-left: 80px;
+	margin-right: 80px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
