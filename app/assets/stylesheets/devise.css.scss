@@ -1,0 +1,62 @@
+#title{
+	color: #a82109;
+	font-family: 'Alfa Slab One';
+}
+
+#bodytitles{
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+	letter-spacing: .03em;
+}
+
+#bodytext{
+	font-family: 'Josefin Slab';
+	font-weight: 400;
+	letter-spacing: .03em;
+}
+
+#deviseopacity{
+	position: absolute;
+	z-index: -1;
+	width: 700px;
+	height: 250px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#edituseropacity{
+	position: absolute;
+	z-index: -1;
+	width: 540px;
+	height: 500px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#offset{
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-top: 5px;
+	margin-bottom: 70px;
+}
+
+#links{
+	padding-bottom: 15px;
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+}
+
+div a:link{
+	color: #a82109;
+	background-color: none;
+}
+div a:visited{
+	color: #a82109;
+}
+div a:hover{
+	background: none !important;
+	border: none !important;
+	text-decoration: underline !important;
+}

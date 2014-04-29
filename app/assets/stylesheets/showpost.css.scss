@@ -1,6 +1,6 @@
 #beeropacity{
 	position: absolute;
-	z-index: -1;
+	z-index: -2;
 	width: 460px;
 	height: 35%;
 	background-color: #ebebeb;
@@ -22,7 +22,8 @@
 	margin-left: 20px;
 	margin-right: 20px;
 	padding-top: 5px;
-	margin-bottom: 40px;
+	padding-bottom: 15px;
+	z-index: 1;
 }
 
 #commentoffset{
