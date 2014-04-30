@@ -1,10 +1,19 @@
 .welcome{
 	width: 780px;
 	height: 600px;
-	background-color: #ebebeb;
 	border-radius: 10px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#welcomeopacity{
+	position: absolute;
+	z-index: -1;
+	width: 780px;
+	height: 600px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
 }
 
 .intro{

@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag "posts", :media => "all" %>
 
 <div class="span3">
+	<div id="postopacity"></div>
 	<div class="postsquares">
 		<div class="media">
 			<!-- Image will go here. -->
@@ -15,6 +16,9 @@
 
 			<div class="media-body">
 				<span id="bodytext"><%= truncate post.beer.description, length: 40 %></span>
+			</div>
+
+			<div class="media-body">
 				<hr />
 				<i class="icon-user"> </i>
 

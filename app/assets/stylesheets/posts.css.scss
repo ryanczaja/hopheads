@@ -2,7 +2,17 @@
 	border-radius: 5px;
 	padding: 5px;
 	margin-bottom: 20px;
-	background-color: white;
+	
+}
+
+#postopacity{
+	position: absolute;
+	z-index: -1;
+	width: 220px;
+	height: 188px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
 }
 
 #opacity{
