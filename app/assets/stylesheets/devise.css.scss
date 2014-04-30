@@ -9,6 +9,13 @@
 	letter-spacing: .03em;
 }
 
+#red{
+	color: #a82109;
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+	letter-spacing: .03em;
+}
+
 #bodytext{
 	font-family: 'Josefin Slab';
 	font-weight: 400;
@@ -30,6 +37,26 @@
 	z-index: -1;
 	width: 540px;
 	height: 500px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#signupopacity{
+	position: absolute;
+	z-index: -1;
+	width: 460px;
+	height: 610px;
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+#passwordopacity{
+	position: absolute;
+	z-index: -1;
+	width: 460px;
+	height: 350px;
 	background-color: #ebebeb;
 	border-radius: 10px;
 	opacity: .9;

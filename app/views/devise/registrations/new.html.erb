@@ -1,45 +1,35 @@
-<h2>Sign up</h2>
+<%= stylesheet_link_tag "devise", :media => "all" %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="span6">
+    <div id="signupopacity"></div>
+    <div id="offset">
+      <h2 id="title">Sign up</h2>
 
-  <div class="control-group">
-    <%= f.label :name, class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :autofocus => true %>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+        <span id="red">
+          <%= devise_error_messages! %>
+        </span>
+
+          <span id="bodytitles">Name</span><br/>
+          <%= f.text_field :name, :autofocus => true %><br/><br/>
+
+        	<span id="bodytitles">Email</span><br/>
+        	<%= f.email_field :email %><br/><br/>
+
+        	<span id="bodytitles">Password</span><br/>
+        	<%= f.password_field :password %><br/>
+
+        	<span id="bodytitles">Password</span><br/>
+          <%= f.password_field :password_confirmation %><br/><br/>
+
+        	<%= f.submit "Sign up", class: 'btn btn-danger btn-small' %><br/><br/>
+
+        	<div id="bodytitles">
+        		<%= render "devise/shared/links" %>
+        	</div>
+      <% end %>
+
     </div>
   </div>
-
-  <div class="control-group">
-  	<%= f.label :email, class: 'control-label' %>
-  	<div class="controls">
-  		<%= f.email_field :email %>
-  	</div>
-  </div>
-
-  <div class="control-group">
-  	<%= f.label :password, class: 'control-label' %>
-  	<div class="controls">
-  		<%= f.password_field :password %>
-  	</div>
-  </div>
-
-  <div class="control-group">
-  	<%= f.label :password_confirmation, class: 'control-label' %>
-  	<div class="controls">
-  		<%= f.password_field :password_confirmation %>
-  	</div>
-  </div>
-
-  <div class="control-group">
-  	<div class="controls">
-  		<%= f.submit "Sign up", class: 'btn' %>
-  	</div>
-  </div>
-
-  <div class="control-group">
-  	<div class="controls">
-  		<%= render "devise/shared/links" %>
-  	</div>
-  </div>
-<% end %>
+</div>
