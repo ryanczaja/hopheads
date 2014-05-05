@@ -3,7 +3,7 @@
 <!-- This displays comments for each post. -->
 <div class="media-body">
 	<small>
-		<b id="bodytitles"><%= link_to comment.user.name, comment.user %></b> 
+		<b id="bodytitles"><span id="comment"><%= link_to comment.user.name, comment.user %></span></b> 
 		<span id="bodytext">
 			commented <%= time_ago_in_words(comment.created_at) %> ago 
 			<% if can? :destroy, comment %>

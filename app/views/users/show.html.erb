@@ -42,8 +42,8 @@
 
 					<% @user.posts.each do |post| %>
 
-						<span id="beername"><%= link_to post.beer.name, post.beer %></span> 
-						by <%= link_to post.brewery.name, post.brewery %><br/>
+						<span id="beername"><span id="drankbeers"><%= link_to post.beer.name, post.beer %></span></span>
+						by <span id="drankbeers"><%= link_to post.brewery.name, post.brewery %></span><br/>
 
 
 						<% if post.location.name != "" %>

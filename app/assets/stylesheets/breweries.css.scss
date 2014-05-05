@@ -62,16 +62,16 @@ th, td{
 	border: 1px solid black;
 }
 
-div a:link{
+#brewerylink a:link{
 	color: #a82109;
 	background-color: none;
 	border: none !important;
 }
-div a:visited{
+#brewerylink a:visited{
 	color: #a82109;
 	border: none !important;
 }
-div a:hover{
+#brewerylink a:hover{
 	text-decoration: underline !important;
 	color: #a82109 !important;
 }

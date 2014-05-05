@@ -55,19 +55,21 @@
 	font-weight: 700;
 }
 
-#links{
+#signuplinks{
 	margin-left: 20px;
 	padding-bottom: 15px;
 }
 
-div a:link{
+#signuplinks a:link{
 	color: #a82109;
 	background-color: none;
 }
-div a:visited{
+
+#signuplinks a:visited{
 	color: #a82109;
 }
-div a:hover{
+
+#signuplinks a:hover{
 	background: none !important;
 	border: none !important;
 	text-decoration: underline !important;

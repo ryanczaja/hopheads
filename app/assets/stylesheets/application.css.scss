@@ -31,22 +31,6 @@
 	color: white;
 }
 
-div ul a:link{
-	color: white;
-	background-color: none;
-	border: none !important;
-}
-div ul a:visited{
-	color: white;
-	border: none !important;
-}
-div ul a:hover{
-	background: none !important;
-	border: none !important;
-	text-decoration: underline !important;
-	color: white;
-}
-
 body{
 	background-image: url(/images/hop.jpg);
 	padding-bottom: 160px;
@@ -59,4 +43,27 @@ body{
 .copyright{
 	margin-top: 40px;
 	margin-left: 10px;
+}
+
+#bannerlinks a:link{
+	color: white;
+	background-color: none;
+	border: none !important;
+}
+
+#bannerlinks a:visited{
+	color: white;
+	border: none !important;
+}
+
+#bannerlinks a:hover{
+	background: none !important;
+	border: none !important;
+	text-decoration: underline !important;
+	color: white;
+}
+
+#backgroundlinks a:hover{
+	border: none !important;
+	color: white;
 }

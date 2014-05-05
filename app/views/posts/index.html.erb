@@ -8,9 +8,11 @@
 	</div>
 
 	<div class="span4 pull-right">
-		<% if can? :create, Post %>
-			<%= link_to "New Post", new_post_path, class: 'btn btn-large btn-block' %>
-		<% end %>
+		<span id="beerpostlinks">
+			<% if can? :create, Post %>
+				<%= link_to "New Post", new_post_path, class: 'btn btn-large btn-block' %>
+			<% end %>
+		</span>
 	</div>
 </div>
 

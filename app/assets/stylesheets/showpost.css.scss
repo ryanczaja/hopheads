@@ -49,3 +49,33 @@
 	font-weight: 400;
 	letter-spacing: .03em;
 }
+
+#bodytext a:link{
+	color: #a82109;
+	background-color: none;
+}
+
+#bodytext a:visited{
+	color: #a82109;
+}
+
+#bodytext a:hover{
+	background: none !important;
+	border: none !important;
+	text-decoration: underline !important;
+}
+
+#comment a:link{
+	color: #a82109;
+	background-color: none;
+}
+
+#comment a:visited{
+	color: #a82109;
+}
+
+#comment a:hover{
+	background: none !important;
+	border: none !important;
+	text-decoration: underline !important;
+}

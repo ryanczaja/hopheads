@@ -1,13 +1,13 @@
-<%= stylesheet_link_tag "beers", :media => "all" %>
+<%= stylesheet_link_tag "breweries", :media => "all" %>
 
 <!-- This is to display comments for the brewery on each brewery page. -->
 <div class="media-body">
 	<small>
-		<b id="bodytitles"><%= link_to comment.user.name, comment.user %></b> 
+		<b id="bodytitles"><span id="brewerylink"><%= link_to comment.user.name, comment.user %></span></b> 
 		<span id="bodytext">
 			commented <%= time_ago_in_words(comment.created_at) %> ago 
 			<% if can? :destroy, comment %>
-				| <%= link_to "Delete", [@brewery, comment], method: :delete %>
+				| <span id="brewerylink"><%= link_to "Delete", [@brewery, comment], method: :delete %></span>
 			<% end %>
 		</span>
 	</small>

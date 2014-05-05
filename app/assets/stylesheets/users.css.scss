@@ -89,3 +89,21 @@
 #beername{
 	font-size: 24px;
 }
+
+#drankbeers a:link{
+	color: #a82109;
+	background-color: none;
+	border: none !important;
+}
+
+#drankbeers a:visited{
+	color: #a82109;
+	border: none !important;
+}
+
+#drankbeers a:hover{
+	background: none !important;
+	border: none !important;
+	text-decoration: underline !important;
+	color: #a82109;
+}

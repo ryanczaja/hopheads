@@ -15,31 +15,33 @@
   </div>
   
   <div class="container">
-    <div>
-  		<ul class="nav nav-tabs">
-        <li><%= link_to image_tag("/images/hoplogo1.jpg"), root_path %></li>
-  			<!--<li id="link"><%= link_to "About", about_path %></li>-->
-  			<li id="link"><%= link_to "Posts", posts_path %></li>
+		<ul class="nav nav-tabs">
+      <li id="bannerlinks"><%= link_to image_tag("/images/hoplogo1.jpg"), root_path %></li>
+			<!--<li id="link"><%= link_to "About", about_path %></li>-->
+			<li id="bannerlinks"><%= link_to "Posts", posts_path %></li>
 
-  			<div class="pull-right user-info">
+			<div class="pull-right user-info">
 
-  				<% if current_user %>
-  					Hello <%= link_to (current_user.name || current_user.email), current_user %>! 
+				<% if current_user %>
+          <span id="bannerlinks">
+					 Hello <%= link_to (current_user.name || current_user.email), current_user %>! 
+          </span>
+          <span id="backgroundlinks">
             <%= link_to edit_user_registration_path, class: 'btn btn-mini' do %>
               <i class="icon-cog"> </i>
             <% end %>
             <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-mini' do %>
               <i class="icon-share-alt"> </i>
             <% end %>
+          </span>
 
-  				<% else %>
-            <i class="icon-user"> </i>
-  					<%= link_to "Sign In", new_user_session_path %> 
-  				<% end %>
-          
-  			</div>
-  		</ul>
-    </div>
+				<% else %>
+          <i class="icon-user"> </i>
+					<%= link_to "Sign In", new_user_session_path %> 
+				<% end %>
+        
+			</div>
+		</ul>
 
 		<% if flash[:notice] %>
         <div class="alert alert-success">

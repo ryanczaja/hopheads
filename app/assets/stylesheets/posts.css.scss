@@ -2,7 +2,6 @@
 	border-radius: 5px;
 	padding: 5px;
 	margin-bottom: 20px;
-	
 }
 
 #postopacity{
@@ -16,7 +15,7 @@
 }
 
 #opacity{
-	width: 460px;
+	width: 400px;
 	height: 35px;
 	padding-left: 20px;
 	padding-top: 15px;
@@ -49,16 +48,16 @@
 	letter-spacing: .03em;
 }
 
-div a:link{
+#beerpostlinks a:link{
 	color: #a82109;
 	background-color: none;
 	border: none !important;
 }
-div a:visited{
+#beerpostlinks a:visited{
 	color: #a82109;
 	border: none !important;
 }
-div a:hover{
+#beerpostlinks a:hover{
 	text-decoration: underline !important;
 	color: #a82109 !important;
 }

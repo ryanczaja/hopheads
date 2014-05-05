@@ -3,11 +3,11 @@
 <!-- This is to display comments for the beer on each beer page. -->
 <div class="media-body">
 	<small>
-		<b id="bodytitles"><%= link_to comment.user.name, comment.user %></b> 
+		<b id="bodytitles"><span id="beerlinks"><%= link_to comment.user.name, comment.user %></span></b> 
 		<span id="bodytext">
 			commented <%= time_ago_in_words(comment.created_at) %> ago 
 			<% if can? :destroy, comment %>
-				| <%= link_to "Delete", [@beer, comment], method: :delete %>
+				| <span id="beerlinks"><%= link_to "Delete", [@beer, comment], method: :delete %></span>
 			<% end %>
 		</span>
 	</small>

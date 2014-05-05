@@ -8,7 +8,7 @@
 				<div class="media-body">
 				<b id="bodytitles">Brewed By:</b><br />
 				<span id="bodytitles">
-					<%= link_to @beer.brewery.name, @beer.brewery %>
+					<span id="beerlinks"><%= link_to @beer.brewery.name, @beer.brewery %></span>
 					<% if @beer.brewery.location.city != "" %>| <%= @beer.brewery.location.city %>, <% end %>
 					<% if @beer.brewery.location.state != "" %> <%= @beer.brewery.location.state %> <% end %><br /><br />
 				</span>
@@ -46,7 +46,7 @@
 				<ul>
 					<% @beers.each do |beer| %>
 						<% if beer.style == @beer.style && beer != @beer %>
-							<li><%= link_to beer.name, beer %> by:  
+							<li id="beerlinks"><%= link_to beer.name, beer %> by:  
 								<%= link_to beer.brewery.name, beer.brewery %></li>
 						<% end %>
 					<% end %>
