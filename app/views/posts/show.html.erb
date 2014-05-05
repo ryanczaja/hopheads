@@ -5,7 +5,7 @@
 	<div class="span6">
 		<div id="beeropacity"></div>
 		<div id="offset">
-			<h1 id="headtitle"> <%= @post.beer.name %> </h1>
+			<h1 id="showbeertitle"> <%= @post.beer.name %> </h1>
 
 			<%= link_to "Go to Beer", @post.beer, class: 'btn btn-mini' %> |
 			<% if can? :edit, @post %>
