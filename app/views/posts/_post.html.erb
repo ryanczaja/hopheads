@@ -16,7 +16,14 @@
 				</span>
 
 				<div class="media-body">
-					<span id="bodytext"><%= truncate post.beer.description, length: 40 %></span>
+					<span id="bodytext">
+						<% if post.beer.description.length >= 35 %>
+							<%= truncate post.beer.description, length: 40 %>
+						<% else %>
+							<%= truncate post.beer.description, length: 40 %>
+							<br /><br/>
+						<% end %>
+					</span>
 				</div>
 
 				<div class="media-body">
