@@ -48,6 +48,7 @@ group :test, :develoment do
 	gem 'pry-debugger'
 	gem "better_errors"
 	gem "binding_of_caller"
+	gem 'debugger', '~> 1.6.5'
 end
 
 # To use ActiveModel has_secure_password
@@ -62,5 +63,5 @@ end
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
+#To use debugger
+
