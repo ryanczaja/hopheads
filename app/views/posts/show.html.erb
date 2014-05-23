@@ -18,7 +18,13 @@
 
 			<br /><br/>
 			<p><b id="bodytitles">Brewery:</b><span id="bodytext"> <%= link_to @post.brewery.name, @post.brewery %></span></p>
-			<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> <%= @post.style.name %></span></p>
+
+			<% if @post.style != nil || @post.style != "" %>
+				<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> <%= @post.style.name %></span></p>
+			<% else %>
+				<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> ???? </span></p>
+			<% end %>
+
 			<p><b id="bodytitles">Alcohol Percentage:</b><span id="bodytext"> <%= @post.beer.abv %>%</span></p>
 			<p><b id="bodytitles">IBU's:</b><span id="bodytext"> <%= @post.beer.ibu %></span></p>
 			<% if @post.location.name != "" %>
