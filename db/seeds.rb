@@ -15,7 +15,6 @@ rand(4..10).times do
       title: Faker::Lorem.words(rand(1..10)).join(" "),
       beer_attributes: {
         name: Faker::Lorem.words(rand(1..3)).join(" "),
-        style: Faker::Lorem.words(rand(1..3)).join(" "),
         abv: rand(4..15),
         description: Faker::Lorem.paragraphs(rand(1..2)).join("\n")
         },
@@ -28,7 +27,10 @@ rand(4..10).times do
         state: Faker::Lorem.words(rand(1)).join(" "),
         phone: rand(4..15),
         zip: rand(4..15)
-        })
+        },
+        style_attributes: {
+          name: Faker::Lorem.words(rand(1..2)).join(" ")
+          })
     # set the created_at to a time within the past year
     p.update_attribute(:created_at, Time.now - rand(600..31536000))
   end

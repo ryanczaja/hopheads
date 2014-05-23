@@ -1,5 +1,7 @@
 Hopheads::Application.routes.draw do
 
+  resources :styles, only: [:index, :show]
+
   resources :posts do
   	resources :comments, only: [:create, :destroy], controller: 'posts/comments'
   end

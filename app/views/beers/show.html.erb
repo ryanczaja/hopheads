@@ -15,12 +15,12 @@
 
 				<b id="bodytitles">Style | ABV | IBU:</b><br />
 				<span id="bodytext">
-					<%= @beer.style %> | 
+					<%= @beer.style.name %> | 
 					<%= @beer.abv %>% ABV | 
-					<% if @beer.ibu = nil || @beer.ibu = "" %>
-						???
-					<% elsif %>
+					<% if @beer.ibu != nil || @beer.ibu != "" %>
 						<%= @beer.ibu %> IBU's
+					<% elsif %>
+						???
 					<% end %>
 					<br /><br />
 				</span>
@@ -43,14 +43,7 @@
 		<div id="offset">
 			<h3 id="beertitle">Similar Beers:</h3>
 			<div class="media-body">
-				<ul>
-					<% @beers.each do |beer| %>
-						<% if beer.style == @beer.style && beer != @beer %>
-							<li id="beerlinks"><%= link_to beer.name, beer %> by:  
-								<%= link_to beer.brewery.name, beer.brewery %></li>
-						<% end %>
-					<% end %>
-				</ul>
+				
 			</div>
 		</div>
 	</div>

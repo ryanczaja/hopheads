@@ -35,8 +35,10 @@
 							<%= brewery.text_field :name %><br/>
 						<% end %>
 
-						<span id="bodytitles">Style</span><br/>
-						<%= beer.text_field :style %><br/>
+						<%= post.fields_for :style_attributes do |style| %>
+							<span id="bodytitles">Style</span><br/>
+							<%= style.text_field :name %><br/>
+						<% end %>
 
 						<span id="bodytitles">ABV</span><br/>
 						<%= beer.text_field :abv %><br/>

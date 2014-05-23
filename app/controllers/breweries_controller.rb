@@ -4,6 +4,8 @@ class BreweriesController < ApplicationController
   	@posts = Post.all
   	@brewery = Brewery.find(params[:id])
   	@beers = @brewery.beers
+
+  	
     @comment = Comment.new
     @comments = @brewery.comments
   end

@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   	@post = Post.new
     @post.beer = Beer.new
     @post.brewery = Brewery.new
+    @post.style = Style.new
   end
 
   #Creates a new post with all the post, beers, breweries, location, and users attributes.
@@ -38,6 +39,9 @@ class PostsController < ApplicationController
   #Displays the edit screen for a selected post.
   def edit
   	@post = Post.find(params[:id])
+    @post.beer = Beer.find(params[:id])
+    @post.brewery = Brewery.find(params[:id])
+    @post.style = Style.find(params[:id])
   end
 
   #Updates the post if any changes are made to it on the edit page.
