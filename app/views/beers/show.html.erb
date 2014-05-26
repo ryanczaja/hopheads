@@ -43,7 +43,14 @@
 		<div id="offset">
 			<h3 id="beertitle">Similar Beers:</h3>
 			<div class="media-body">
-				
+				<ul>
+					<% @beers.each do |beer| %>
+						<% if beer.style == @beer.style && beer != @beer %>
+							<li id="beerlinks"><%= link_to beer.name, beer %> by:  
+								<%= link_to beer.brewery.name, beer.brewery %></li>
+						<% end %>
+					<% end %>
+				</ul>
 			</div>
 		</div>
 	</div>
