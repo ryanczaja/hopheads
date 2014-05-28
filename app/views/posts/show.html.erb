@@ -1,65 +1,62 @@
 <%= stylesheet_link_tag "showpost", :media => "all" %>
 <%= stylesheet_link_tag "posts", :media => "all" %>
 
-<div class="row">
-	<div class="span6">
-		<div id="beeropacity">
-			<div id="textoffset">
-				<h1 id="showbeertitle"> <%= @post.beer.name %> </h1>
-				<%= link_to "Go to Beer", @post.beer, class: 'btn btn-mini' %> |
-				<% if can? :edit, @post %>
-					<%= link_to "Edit Post", edit_post_path(@post), class: 'btn btn-mini' %>
-				<% end %>
 
-				<% if can? :destroy, @post %>
-					<%= link_to "Delete Post", @post, method: :delete, class: 'btn btn-mini', confirm: 'Are you sure you want to delete this Post?' %>
-				<% end %>
+<div class="span6">
+	<div id="beeropacity">
+		<div id="textoffset">
+			<h1 id="showbeertitle"> <%= @post.beer.name %> </h1>
+			<%= link_to "Go to Beer", @post.beer, class: 'btn btn-mini' %> |
+			<% if can? :edit, @post %>
+				<%= link_to "Edit Post", edit_post_path(@post), class: 'btn btn-mini' %>
+			<% end %>
 
-				<br /><br/>
-				<p><b id="bodytitles">Brewery:</b><span id="bodytext"> <%= link_to @post.brewery.name, @post.brewery %></span></p>
+			<% if can? :destroy, @post %>
+				<%= link_to "Delete Post", @post, method: :delete, class: 'btn btn-mini', confirm: 'Are you sure you want to delete this Post?' %>
+			<% end %>
 
-				<% if @post.style != nil || @post.style != "" %>
-					<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> <%= @post.style.name %></span></p>
-				<% else %>
-					<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> ???? </span></p>
-				<% end %>
+			<br /><br/>
+			<p><b id="bodytitles">Brewery:</b><span id="bodytext"> <%= link_to @post.brewery.name, @post.brewery %></span></p>
 
-				<p><b id="bodytitles">Alcohol Percentage:</b><span id="bodytext"> <%= @post.beer.abv %>%</span></p>
-				<p><b id="bodytitles">IBU's:</b><span id="bodytext"> <%= @post.beer.ibu %></span></p>
-				<% if @post.location.name != "" %>
-					<p><b id="bodytitles">Enjoying at:</b><span id="bodytext"> <%= @post.location.name %></span></p>
-				<% end %>
-				<p><b id="bodytitles">Beer Description:</b><span id="bodytext"> <%= @post.beer.description %></span> </p>
-				<!--<p><%= image_tag @post.image.url %></p>-->
+			<% if @post.style != nil || @post.style != "" %>
+				<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> <%= @post.style.name %></span></p>
+			<% else %>
+				<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> ???? </span></p>
+			<% end %>
 
-				<small id="bodytext">
-					submitted <%= time_ago_in_words(@post.created_at) %> ago by
-					<%= link_to @post.user.name, @post.user %>
-				</small>
-			</div>
+			<p><b id="bodytitles">Alcohol Percentage:</b><span id="bodytext"> <%= @post.beer.abv %>%</span></p>
+			<p><b id="bodytitles">IBU's:</b><span id="bodytext"> <%= @post.beer.ibu %></span></p>
+			<% if @post.location.name != "" %>
+				<p><b id="bodytitles">Enjoying at:</b><span id="bodytext"> <%= @post.location.name %></span></p>
+			<% end %>
+			<p><b id="bodytitles">Beer Description:</b><span id="bodytext"> <%= @post.beer.description %></span> </p>
+			<!--<p><%= image_tag @post.image.url %></p>-->
+
+			<small id="bodytext">
+				submitted <%= time_ago_in_words(@post.created_at) %> ago by
+				<%= link_to @post.user.name, @post.user %>
+			</small>
 		</div>
 	</div>
 </div>
 
-<div class="row">
-	<div class="span12">
-		<hr/>
-	</div>
+
+<div class="span12">
+	<hr/>
 </div>
 
-<div class="row">
-	<div class="span8">
-		<div id="commentopacity">
-			<div id="commentoffset">
-				<h2 id="comments"><%= @comments.count %> Comments </h2>
 
-				<%= render partial: 'comments/comment', collection: @comments %>
+<div class="span8">
+	<div id="commentopacity">
+		<div id="commentoffset">
+			<h2 id="comments"><%= @comments.count %> Comments </h2>
 
-				<% if can? :create, Comment %>
-					<h4 id="bodytitles">New Comment</h4>
-					<%= render partial: 'comments/form', locals: {post: @post, comment: @comment} %>
-				<% end %>
-			</div>
+			<%= render partial: 'comments/comment', collection: @comments %>
+
+			<% if can? :create, Comment %>
+				<h4 id="bodytitles">New Comment</h4>
+				<%= render partial: 'comments/form', locals: {post: @post, comment: @comment} %>
+			<% end %>
 		</div>
 	</div>
 </div>
