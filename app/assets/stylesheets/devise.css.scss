@@ -1,27 +1,3 @@
-#title{
-	color: #a82109;
-	font-family: 'Alfa Slab One';
-}
-
-#bodytitles{
-	font-family: 'Josefin Slab';
-	font-weight: 700;
-	letter-spacing: .03em;
-}
-
-#red{
-	color: #a82109;
-	font-family: 'Josefin Slab';
-	font-weight: 700;
-	letter-spacing: .03em;
-}
-
-#bodytext{
-	font-family: 'Josefin Slab';
-	font-weight: 400;
-	letter-spacing: .03em;
-}
-
 #deviseopacity{
 	position: absolute;
 	z-index: -1;
@@ -33,13 +9,10 @@
 }
 
 #edituseropacity{
-	position: absolute;
-	z-index: -1;
-	width: 540px;
-	height: 500px;
 	background-color: #ebebeb;
 	border-radius: 10px;
 	opacity: .9;
+	clear:both;
 }
 
 #signupopacity{
@@ -62,11 +35,42 @@
 	opacity: .9;
 }
 
+#edituseroffset{
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
 #offset{
 	margin-left: 20px;
 	margin-right: 20px;
 	padding-top: 5px;
 	margin-bottom: 70px;
+}
+
+#title{
+	color: #a82109;
+	font-family: 'Alfa Slab One';
+}
+
+#bodytitles{
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+	letter-spacing: .03em;
+}
+
+#red{
+	color: #a82109;
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+	letter-spacing: .03em;
+}
+
+#bodytext{
+	font-family: 'Josefin Slab';
+	font-weight: 400;
+	letter-spacing: .03em;
 }
 
 #links{

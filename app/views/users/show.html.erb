@@ -2,72 +2,43 @@
 
 <div class="row">
 	<div class="span12">
-
-		<div id="userinfo">
-			<div id="opacityuser"></div>
-			<div class="row">
-				<div class="span2">
-					<div id="userphoto">
-
-					</div>
-					
-					<div id="follow">
-						<center>Follow</center>
-					</div>
-				</div>
-
-				<div class="span4">
-					<br/>
-					<h2><span id="usertitle"><%= @user.name %></span></h2>
-					<div id="userstats">
-						
-						Bottle Caps = <%= @user.posts.count %><br/>
-						<%= @user.name %>'s Comment's = <%= @user.comments.count %>
-						<br/>
-					</div>
+		<div id="userstatopacity">
+			<div id="userstatoffset">
+				<h2><span id="usertitle"><%= @user.name %></span></h2>
+				<div id="userstats">
+					Bottle Caps = <%= @user.posts.count %><br/>
+					<%= @user.name %>'s Comment's = <%= @user.comments.count %>
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
 
 <div class="row">
 	<div class="span12">
-		<div id="userposts">
-			<div id="opacityposts"></div>
+		<div id="userpostsopacity">
 			<center><h3><span id="userbeerstitle">Recently Drank Beers</span></h3></center>
+			<div id="usersposts">
+				<% @user.posts.each do |post| %>
 
-				<div id="post">
+					<span id="beername"><span id="drankbeers"><%= link_to post.beer.name, post.beer %></span></span>
+					by <span id="drankbeers"><%= link_to post.brewery.name, post.brewery %></span><br/>
 
-					<% @user.posts.each do |post| %>
+					<% if post.location.name != "" %>
+						Location: <%= post.location.name %>
+					<% elsif %>
+						Location: One not provided.
+					<% end %><br/>
 
-						<span id="beername"><span id="drankbeers"><%= link_to post.beer.name, post.beer %></span></span>
-						by <span id="drankbeers"><%= link_to post.brewery.name, post.brewery %></span><br/>
-
-
-						<% if post.location.name != "" %>
-							Location: <%= post.location.name %>
-						<% elsif %>
-							Location: One not provided.
-						<% end %><br/>
-
-						<% if post.beer.description != "" %>
-							<br/><%= post.beer.description %>
-						<% end %>
-
-						<hr/>
-
+					<% if post.beer.description != "" %>
+						<br/><%= post.beer.description %>
 					<% end %>
 
-				</div>
+					<hr/>
 
+				<% end %>
+
+			</div>
 		</div>
 	</div>
-<!--
-	<div class="span5">
-		<div id="followers">
-			<div id="opacityfollowers"></div>
-		</div>
-	</div>
-</div>-->
+</div>

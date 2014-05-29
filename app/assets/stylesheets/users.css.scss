@@ -1,65 +1,35 @@
-#opacityuser{
-	position: absolute;
-	z-index: -1;
-	width: 940px;
-	height: 215px;
+#userstatopacity{
 	background-color: #ebebeb;
 	border-radius: 10px;
 	opacity: .9;
+	clear:both;
 }
 
-#opacityposts{
-	position: absolute;
-	z-index: -1;
-	#width: 540px;
-	width: 100%;
-	height: 100%;
-	background-color: #ebebeb;
-	border-radius: 10px;
-	opacity: .9;
-	margin-bottom: 25px;
-}
-
-#opacityfollowers{
-	position: absolute;
-	z-index: -1;
-	width: 380px;
-	height: 200px;
-	background-color: #ebebeb;
-	border-radius: 10px;
-	opacity: .9;
-	margin-bottom: 25px;
-}
-
-#userinfo{
-	margin-bottom: 40px;
-}
-
-#userphoto{
-	margin-left: 25px;
-	margin-top: 25px;
-	height: 125px;
-	width: 125px;
-	background-color: #999999;
-	border-radius: 10px;
-}
-
-#follow{
-	width: 125px;
-	height: 25px;
-	border-radius: 10px;
-	background-color: #999999;
-	margin-top: 10px;
-	margin-left: 25px;
+#userstatoffset{
+	margin-left:20px;
+	margin-right:20px;
 	padding-top: 5px;
-	font-family: 'Alfa Slab One';
-	letter-spacing: .1em;
-	color: white;
+	padding-bottom:15px;
+	margin-bottom: 20px;
+}
+
+#userpostsopacity{
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+	clear:both;
+}
+
+#usersposts{
+	margin-left: 20px;
+	margin-right: 20px;
+	font-family: 'Josefin Slab';
+	font-weight: 700;
+	letter-spacing: .02em;
 }
 
 #usertitle{
 	color: #a82109;
-	margin-left: 10px;
 	font-family: 'Alfa Slab One';
 }
 
@@ -69,26 +39,9 @@
 }
 
 #userstats{
-	margin-left: 10px;
 	font-family: 'Josefin Slab';
 	font-weight: 700;
 	letter-spacing: .02em;
-}
-
-#userposts{
-	padding-top: 10px;
-}
-
-#post{
-	margin-left: 20px;
-	margin-right: 20px;
-	font-family: 'Josefin Slab';
-	font-weight: 700;
-	letter-spacing: .02em;
-}
-
-#followers{
-	padding-top: 10px;
 }
 
 #beername{

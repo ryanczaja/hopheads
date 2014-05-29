@@ -2,49 +2,50 @@
 
 <div class="row">
   <div class="span7">
-    <div id="edituseropacity"></div>
-    <div id="offset">
-      <h2 id="title">Edit: <%= (current_user.name || current_user.email) %></h2>
+    <div id="edituseropacity">
+      <div id="edituseroffset">
+        <h2 id="title">Edit: <%= (current_user.name || current_user.email) %></h2>
 
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
-        <%= devise_error_messages! %>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
+          <%= devise_error_messages! %>
 
-        <span id="bodytitles">Name</span><br/>
-        <%= f.text_field :name, :autofocus => true %><br/><br/>
+          <span id="bodytitles">Name</span><br/>
+          <%= f.text_field :name, :autofocus => true %><br/><br/>
 
-        <span id="bodytitles">Email</span><br/>
-        <%= f.email_field :email %><br/><br/>
+          <span id="bodytitles">Email</span><br/>
+          <%= f.email_field :email %><br/><br/>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>Waiting confirmation for:</p>
-          <%= resource.unconfirmed_email %>
-        <% end %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Waiting confirmation for:</p>
+            <%= resource.unconfirmed_email %>
+          <% end %>
 
-        <span id="bodytitles">Password</span><br/>
-        <%= f.password_field :password %>
-        <small><i id="bodytext">(Leave blank if you don't want to change it)</i></small><br/><br/>
-
-        <% unless current_user.provider? %>
           <span id="bodytitles">Password</span><br/>
           <%= f.password_field :password %>
-          <small><i id="bodytext">(To confirm changes enter password)</i></small><br/><br/>
+          <small><i id="bodytext">(Leave blank if you don't want to change it)</i></small><br/><br/>
+
+          <% unless current_user.provider? %>
+            <span id="bodytitles">Password</span><br/>
+            <%= f.password_field :password %>
+            <small><i id="bodytext">(To confirm changes enter password)</i></small><br/><br/>
+          <% end %>
+          
+
+          <%= f.submit "Update", class: 'btn btn-danger btn-small' %>
         <% end %>
-        
 
-        <%= f.submit "Update", class: 'btn btn-danger btn-small' %>
-      <% end %>
-
-      <h3 id="title">Cancel my account</h3>
-      <div class="horizontal-form">
-        <div class="control-group">
-          <div class="controls">
-            <p>
-              <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger btn-small' %>
-            </p>
+        <h3 id="title">Cancel my account</h3>
+        <div class="horizontal-form">
+          <div class="control-group">
+            <div class="controls">
+              <p>
+                <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger btn-small' %>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 </div>
