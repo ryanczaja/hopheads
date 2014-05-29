@@ -1,11 +1,11 @@
 <%= stylesheet_link_tag "beers", :media => "all" %>
 
 <div class="row">
+
 	<div class="span6">
-		<div id="beeropacity"></div>
-		<div id="offset">
-			<h1 id="beertitle"><%= @beer.name %></h1>
-				<div class="media-body">
+		<div id="beershowopacity">
+			<div id="beershowoffset">
+				<h1 id="beertitle"><%= @beer.name %></h1>
 				<b id="bodytitles">Brewed By:</b><br />
 				<span id="bodytitles">
 					<span id="beerlinks"><%= link_to @beer.brewery.name, @beer.brewery %></span>
@@ -39,21 +39,22 @@
 	</div>
 
 	<div class="span6">
-		<div id="similaropacity"></div>
-		<div id="offset">
-			<h3 id="beertitle">Similar Beers:</h3>
-			<div class="media-body">
-				<ul>
-					<% @beers.each do |beer| %>
-						<% if beer.style == @beer.style && beer != @beer %>
-							<li id="beerlinks"><%= link_to beer.name, beer %> by:  
-								<%= link_to beer.brewery.name, beer.brewery %></li>
+		<div id="similaropacity">
+			<div id="beershowoffset">
+				<h3 id="beertitle">Similar Beers:</h3>
+				<div class="media-body">
+					<ul>
+						<% @beers.each do |beer| %>
+							<% if beer.style == @beer.style && beer != @beer %>
+								<li id="beerlinks"><%= link_to beer.name, beer %> by:  
+									<%= link_to beer.brewery.name, beer.brewery %></li>
+							<% end %>
 						<% end %>
-					<% end %>
-				</ul>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
+	</div>	
 </div>
 
 <div class="row">
@@ -64,16 +65,17 @@
 
 <div class="row">
 	<div class="span8">
-		<div id="commentopacity"></div>
-		<div id="commentoffset">
-			<h2 id="comments"><%= @comments.count %> Reviews </h2>
+		<div id="beershowcommentopacity">
+			<div id="beershowcommentoffset">
+				<h2 id="comments"><%= @comments.count %> Reviews </h2>
 
-			<%= render partial: 'beers/comments/comment', collection: @comments %>
+				<%= render partial: 'beers/comments/comment', collection: @comments %>
 
-			<% if can? :create, Comment %>
-				<h4 id="bodytitles">New Comment</h4>
-				<%= render partial: 'beers/comments/form', locals: {beer: @beer, comment: @comment} %>
-			<% end %>
+				<% if can? :create, Comment %>
+					<h4 id="bodytitles">New Comment</h4>
+					<%= render partial: 'beers/comments/form', locals: {beer: @beer, comment: @comment} %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>

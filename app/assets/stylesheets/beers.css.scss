@@ -1,3 +1,39 @@
+#beershowopacity{
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+	clear:both;
+}
+
+#similaropacity{
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+	clear:both;
+}
+
+#beershowcommentopacity{
+	background-color: #ebebeb;
+	border-radius: 10px;
+	opacity: .9;
+	clear:both;
+}
+
+#beershowoffset{
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+#beershowcommentoffset{
+	margin-left: 20px;
+	margin-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
 #beertitle{
 	color: #a82109;
 	font-family: 'Alfa Slab One';
@@ -13,50 +49,6 @@
 	font-family: 'Josefin Slab';
 	font-weight: 400;
 	letter-spacing: .03em;
-}
-
-#beeropacity{
-	position: absolute;
-	z-index: -1;
-	width: 460px;
-	height: 40%;
-	background-color: #ebebeb;
-	border-radius: 10px;
-	opacity: .9;
-}
-
-#similaropacity{
-	position: absolute;
-	z-index: -1;
-	width: 460px;
-	height: 40%;
-	background-color: #ebebeb;
-	border-radius: 10px;
-	opacity: .9;
-}
-
-#commentopacity{
-	position: absolute;
-	z-index: -1;
-	width: 620px;
-	height: 60%;
-	background-color: #ebebeb;
-	border-radius: 10px;
-	opacity: .9;
-}
-
-#offset{
-	margin-left: 20px;
-	margin-right: 20px;
-	padding-top: 5px;
-	margin-bottom: 70px;
-}
-
-#commentoffset{
-	margin-left: 20px;
-	margin-right: 10px;
-	padding-top: 5px;
-	margin-bottom: 50px;
 }
 
 #comments{
