@@ -1,9 +1,14 @@
-<h1>Styles#index</h1>
-<p>Find me in app/views/styles/index.html.erb</p>
-
+<%= stylesheet_link_tag "styles", :media => "all" %>
 
 <ol>
 	<% @styles.each do |style| %>
-		<%= link_to style.name, style %>
+		<div class="span3">
+			<div id="stylesindexopacity">
+				<div id="stylesindexopacity">
+					<%= link_to style.name, style %>
+					<%= style.beers.name %>
+				</div>
+			</div>
+		</div>
 	<% end %>
 </ol>

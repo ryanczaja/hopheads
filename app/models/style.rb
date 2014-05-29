@@ -5,6 +5,8 @@ class Style < ActiveRecord::Base
 
   before_save :title_case
 
+  default_scope order('created_at DESC')
+
   #validates :name, length: {minimum: 5}, presence: true, uniqueness: true
 
   #This method title cases all saved entries for beer to make them singular and have no off-cased beer names.
