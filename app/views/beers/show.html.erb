@@ -15,7 +15,7 @@
 
 				<b id="bodytitles">Style | ABV | IBU:</b><br />
 				<span id="bodytext">
-					<%= @beer.style.name %> | 
+					<span id="beerlinks"><%= link_to @beer.style.name, @beer.style %></span> | 
 					<%= @beer.abv %>% ABV | 
 					<% if @beer.ibu != nil || @beer.ibu != "" %>
 						<%= @beer.ibu %> IBU's

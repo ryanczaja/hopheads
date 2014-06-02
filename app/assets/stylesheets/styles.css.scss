@@ -6,8 +6,52 @@
 }
 
 #stylesindexopacity{
-	margin-left:20px;
-	margin-right:20px;
 	padding-top: 5px;
 	padding-bottom:15px;
+	padding-left: 20px;
+	margin-bottom: 20px;
+}
+
+#stylesstyletitle a:link{
+	color: #a82109;
+	background-color: none;
+	font-family: 'Alfa Slab One';
+}
+
+#stylesstyletitle a:visited{
+	color: #a82109;
+	font-family: 'Alfa Slab One';
+}
+
+#stylesstyletitle a:hover{
+	color: #a82109;
+	text-decoration: underline !important;
+	font-family: 'Alfa Slab One';
+}
+
+#stylesstyletitle a:active{
+	color: #a82109;
+	font-family: 'Alfa Slab One';
+}
+
+#stylesbeertitle a:link{
+	color: #a82109;
+	background-color: none;
+	font-family: 'Josefin Slab';
+}
+
+#stylesbeertitle a:visited{
+	color: #a82109;
+	font-family: 'Josefin Slab';
+}
+
+#stylesbeertitle a:hover{
+	color: #a82109;
+	text-decoration: underline !important;
+	font-family: 'Josefin Slab';
+}
+
+#stylesbeertitle a:active{
+	color: #a82109;
+	font-family: 'Josefin Slab';
 }

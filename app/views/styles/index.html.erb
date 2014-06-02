@@ -1,14 +1,18 @@
 <%= stylesheet_link_tag "styles", :media => "all" %>
 
-<ol>
-	<% @styles.each do |style| %>
-		<div class="span3">
-			<div id="stylesindexopacity">
-				<div id="stylesindexopacity">
-					<%= link_to style.name, style %>
-					<%= style.beers.name %>
-				</div>
+<% @styles.each do |style| %>
+	<div class="span3">
+		<div id="stylesindexopacity">
+			<div id="stylesindexoffset">
+				<h5 id="stylesstyletitle"><%= link_to style.name, style %></h5>
+				<% style.beers.each do |beer| %>
+					<span id="stylesbeertitle">
+						<ul>
+							<li><%= link_to beer.name, beer %></li>
+						</ul>
+					</span>
+				<% end %>
 			</div>
 		</div>
-	<% end %>
-</ol>
+	</div>
+<% end %>

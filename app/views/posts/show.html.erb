@@ -19,7 +19,7 @@
 			<p><b id="bodytitles">Brewery:</b><span id="bodytext"> <%= link_to @post.brewery.name, @post.brewery %></span></p>
 
 			<% if @post.style != nil || @post.style != "" %>
-				<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> <%= @post.style.name %></span></p>
+				<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> <%= link_to @post.style.name, @post.style %></span></p>
 			<% else %>
 				<p><b id="bodytitles">Beer Style:</b><span id="bodytext"> ???? </span></p>
 			<% end %>

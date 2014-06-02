@@ -1,8 +1,34 @@
-<h1><%= @style.name %></h1>
+<%= stylesheet_link_tag "stylesshow", :media => "all" %>
 
+<div class="row">
+	<div class="span12">
+		<div id="stylesshowopacity">
+			<div id="stylesshowoffset">
+				<h1 id="styletitle"><%= @style.name %></h1>
 
-<ol>
-	<% @beers.each do |beer| %>
-		<%= link_to beer.name, beer %>
-	<% end %>
-</ol>
+				<table class="table table-bordered" id="styletable">
+					<thead>
+						<tr>
+							<th id="bodytitles">Beer Name</th>
+							<th id="bodytitles">Brewery</th>
+							<th id="bodytitles">ABV</th>
+							<th id="bodytitles">Bottle Caps</th>
+							<th id="bodytitles">Reviews</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @style.beers.each do |beer| %>
+							<tr>
+								<td id="bodytext"><span id="stylelink"><%= link_to beer.name, beer %></span></td>
+								<td id="bodytext"><span id="stylelink"><%= link_to beer.brewery.name, beer.brewery %></span></td>
+								<td id="bodytext"><%= beer.abv %></td>
+								<td id="bodytext"><%= beer.posts.count %></td>
+								<td id="bodytext"><%= beer.comments.count %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
